@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form>
+        <div>
+            <input id="email" type="text" placeholder="Email...">
+        </div>
+        <div>
+            <input id="password" type="password" placeholder="Password...">
+        </div>
+        <div>
+            <button id="sign-in">Sign In/Register</button>
+            <button id="sign-out">Sign Out</button>
+        </div>
+    </form>
+
+    <!--Include firebase.js  -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+            authDomain: "eatsmart-group.firebaseapp.com",
+            databaseURL: "https://eatsmart-group.firebaseio.com",
+            projectId: "eatsmart-group",
+            storageBucket: "eatsmart-group.appspot.com",
+            messagingSenderId: "9553700006"
+        };
+
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+
+        //on submit button
+        $("#sign-in").on("click", function () {
+
+            event.preventDefault();
+
+            //Store value of input
+            var email = $("#email").val().trim();
+            var password = $("#password").val().trim();
+
+            console.log(email);
+            console.log(password);
+
+            //if field empty
+            if (email = " ") {
+                alert("missing email");
+            }
+            if (password = " ") {
+                alert("missing password")
+            }
+            else {
+                alert("good job")
+            }
+
+            //firebase email and password syntax 
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
+                //current user (login)
+                var user = firebase.auth().currentUser;
+                logUser(user);
+
+            }, function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+            });
+
+
+            function logUser(user) {
+                var ref = firebase.database().ref("users");
+                var obj = {
+                    "user": user,
+
+                };
+                ref.push(obj);
+            }
+
+        });
+
+
+    </script>
+
+
+    </script>
+
+</body>
+
+</html>
