@@ -35,61 +35,44 @@
             storageBucket: "eatsmart-group.appspot.com",
             messagingSenderId: "9553700006"
         };
-
         firebase.initializeApp(config);
-
         var database = firebase.database();
-
-
         //on submit button
         $("#sign-in").on("click", function () {
-
             event.preventDefault();
-
             //Store value of input
             var email = $("#email").val().trim();
             var password = $("#password").val().trim();
-
             console.log(email);
             console.log(password);
-
-            //if field empty
-            if (email = " ") {
-                alert("missing email");
-            }
-            if (password = " ") {
-                alert("missing password")
-            }
-            else {
-                alert("good job")
-            }
-
+            // //if field empty
+            // if (email = " ") {
+            //     alert("missing email");
+            // }
+            // if (password = " ") {
+            //     alert("missing password")
+            // }
+            // else {
+            //     alert("good job")
+            // }
             //firebase email and password syntax 
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-
                 //current user (login)
                 var user = firebase.auth().currentUser;
                 logUser(user);
-
             }, function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
             });
-
-
             function logUser(user) {
                 var ref = firebase.database().ref("users");
                 var obj = {
                     "user": user,
-
                 };
                 ref.push(obj);
             }
-
         });
-
-
     </script>
 
 
