@@ -1,26 +1,28 @@
-// var database = firebase.database();
+var database = firebase.database();
 
-// //Pushing new user data onto database
-// $("#register").on("click", function () {
-//     database.ref().on("child_added", function (childSnap) {
-//         //grabbing input value
-//         theName = childSnap.val().theName;
-//         theEmail = childSnap.val().theEmail;
-//         thePass = childSnap.val().thePass;
-//     })
+//Pushing new user data onto database
+$("#submit-register").on("click", function () {
+    database.ref().on("child_added", function (childSnap) {
+        //grabbing input value
+        theName = childSnap.val().theName;
+        theEmail = childSnap.val().theEmail;
+        thePass = childSnap.val().thePass;
+    })
 
-//     var theName = $("#userName").val().trim();
-//     var theEmail = $("#userEmail").val().trim();
-//     var thePass = $("#userPassword").val().trim();
+    var theName = $("#user-name").val().trim();
+    var theEmail = $("#register-email").val().trim();
+    var thePass = $("#register-password").val().trim();
 
-//     //object
-//     var newUser = {
-//         theName: theName,
-//         theEmail: theEmail,
-//         thePass: thePass
-//     }
-//     database.ref().push(newUser);
-// });
+
+    //object
+    var newUser = {
+        theName: theName,
+        theEmail: theEmail,
+        thePass: thePass
+    }
+    database.ref().push(newUser);
+    console.log(newUser)
+});
 
 //LOGGING IN
 //---------------------------------------
@@ -41,15 +43,15 @@ $("#log-in").on("click", e => {
     promise.catch(e => console.log(e.message));
 })
 
-
 //NEW USER
 //---------------------------------------
-$("#register").on("click", e => {
+$("#submit-register").on("click", e => {
 
     event.preventDefault();
 
-    var userEmail = $("#user-email").val().trim();
-    var userPass = $("#user-password").val().trim();
+    var userName = $("#user-name").val().trim();
+    var userEmail = $("#register-email").val().trim();
+    var userPass = $("#register-password").val().trim();
     var auth = firebase.auth();
 
     if (userEmail == "") {
@@ -58,15 +60,31 @@ $("#register").on("click", e => {
     if (userPass == "") {
         alert("missing Pass")
     } else {
+        alert("Welcome :  " + userName)
         alert("allgood")
         $("#register-form").removeClass("hide");
         $("#login-form").addClass("hide");
+        $("#user-name").addClass("hide");
+        $("#register-email").addClass("hide");
+        $("#register-password").addClass("hide");
+        $("#submit-register").addClass("hide");
+        $("#newuser-sign-out").removeClass("hide");
     }
 
     var promise = auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
         return user.updateProfile({ displayName: $("#user-name").val() });
     });
     promise.catch(e => console.log(e.message));
+});
+
+//REGISTER BUTTON
+//---------------------------------------
+$("#register").on("click", e => {
+
+    alert("allgood")
+    $("#register-form").removeClass("hide");
+    $("#login-form").addClass("hide");
+    $("#newuser-sign-out").addClass("hide");
 });
 
 
