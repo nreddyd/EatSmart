@@ -20,6 +20,7 @@ $("#submit-register").on("click", function () {
         theEmail: theEmail,
         thePass: thePass
     }
+
     database.ref().push(newUser);
     console.log(newUser)
 });
@@ -95,34 +96,40 @@ $("#sign-out").on("click", e => {
 });
 
 
+
+//Check if user is signed in
+function isUserSignedIn() {
+    return !!firebase.auth().currentUser;
+    console.log("isUserSignedIn" + isUserSignedIn)
+}
+
+
 //CHECK STATUS
 //---------------------------------------
-firebase.auth().onAuthStateChanged(user => {
+firebase.auth().onAuthStateChanged(function (user) {
 
     event.preventDefault();
 
-    var userEmail = $("#user-email").val().trim();
-
     if (user) {
+        console.log("user:", user);
+        var loggedUser = user.displayName;
 
-        var user = firebase.auth().currentUser;
+        // var user = firebase.auth().currentUser;
 
 
         //FIX: firebaseUser not displaying
-        console.log("welcome   " + user);
+        console.log("welcome, " + loggedUser);
         $("#sign-out").removeClass("hide");
         $("#register").addClass("hide");
         $("#log-in").addClass("hide");
         $("#user-email").addClass("hide");
         $("#user-password").addClass("hide");
 
-        $("#intro").append("YOU ARE LOGGIN IN   " + userEmail);
-        var name, email, photoUrl, uid, emailVerified;
+        $("#intro").append("YOU ARE LOGGED IN ");
+
 
         if (user != null) {
-            name = user.displayName;
-            email = user.email;
-            photoUrl = user.photoURL;
+
         }
 
     } else {
