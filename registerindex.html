@@ -4,26 +4,48 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Jquery Link-->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="assets/css/registerstyle.css">
 </head>
 
 <body>
-    <form>
-        <div>
-            <input id="email" type="text" placeholder="Email...">
-        </div>
-        <div>
-            <input id="password" type="password" placeholder="Password...">
-        </div>
-        <div>
-            <button id="sign-in">Sign In/Register</button>
-            <button id="sign-out">Sign Out</button>
-        </div>
-    </form>
+    <div id="container">
+        <form>
+            <!--Name, Displays on Register & Login-->
+            <div class="input-value hide">
+                <input id="userName" type="text" placeholder="Your Name">
+            </div>
+            <!--Email-->
+            <div class="input-value">
+                <input id="userEmail" type="text" placeholder="Email...">
+            </div>
+            <!--Password-->
+            <div class="input-value">
+                <input id="userPassword" type="password" placeholder="Password...">
+            </div>
 
-    <!--Include firebase.js  -->
+            <!--Submit options-->
+            <div>
+                <button id="Log-In">Log In</button>
+                <button class="hide" id="sign-Out">Sign Out</button>
+            </div>
+
+            <!--status-->
+            <div id="registerUser">
+                <button id="register">Register</button>
+            </div>
+            <div>
+                <p id="intro"></p>
+            </div>
+        </form>
+
+
+    </div>
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -36,48 +58,10 @@
             messagingSenderId: "9553700006"
         };
         firebase.initializeApp(config);
-        var database = firebase.database();
-        //on submit button
-        $("#sign-in").on("click", function () {
-            event.preventDefault();
-            //Store value of input
-            var email = $("#email").val().trim();
-            var password = $("#password").val().trim();
-            console.log(email);
-            console.log(password);
-            // //if field empty
-            // if (email = " ") {
-            //     alert("missing email");
-            // }
-            // if (password = " ") {
-            //     alert("missing password")
-            // }
-            // else {
-            //     alert("good job")
-            // }
-            //firebase email and password syntax 
-            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-                //current user (login)
-                var user = firebase.auth().currentUser;
-                logUser(user);
-            }, function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-            });
-            function logUser(user) {
-                var ref = firebase.database().ref("users");
-                var obj = {
-                    "user": user,
-                };
-                ref.push(obj);
-            }
-        });
     </script>
 
 
-    </script>
-
+    <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
 </body>
 
 </html>
