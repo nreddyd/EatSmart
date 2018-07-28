@@ -1,0 +1,109 @@
+/* .homepagebackground {
+  /* min-height: 380px; */
+/* width: 100%; */
+/* padding: 10%; */
+
+/* Center and scale the image nicely */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+/* background-size: cover; */
+/* } */
+
+html {
+  height: 100%;
+}
+
+body {
+  /* background-image: url("../Images/homepagebackground.jpg"); */
+  width: 100%;
+  /* height: 100%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#meal {
+  color: white;
+  height: 20px;
+}
+.nav-wrapper {
+  margin-left: 10px;
+}
+
+.input-field col s12 {
+  width: 50%;
+}
+
+.container {
+  text-align: center;
+}
+
+.form {
+  /* background: white; */
+  /* width: 50%;
+  height: 5%; */
+
+  /* max-width: 900px; */
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 50px 200px 50px 200px;
+
+  /* margin-top: 0px; */
+  background-image: url("../Images/homepagebackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mealplaceholder {
+  color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+.carouselBreakfast {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 50px 200px 50px 200px;
+
+  background-image: url("../Images/homepageBreakfastBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carouselLunch {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 50px 200px 50px 200px;
+
+  background-image: url("../Images/homepageLunchBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carouselDinner {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 50px 200px 50px 200px;
+
+  background-image: url("../Images/homepageDinnerBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.carousel-heading {
+  background-color: white;
+  padding: 10px;
+  width: 400px;
+  text-align: center;
+  margin: auto;
+}
