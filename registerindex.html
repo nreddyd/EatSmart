@@ -15,50 +15,81 @@
 
 <body>
     <div id="container">
-        <form id="login-form">
-            <!--Email-->
-            <div class="input-value">
-                <input id="userEmail" type="text" placeholder="Email...">
-            </div>
-            <!--Password-->
-            <div class="input-value">
-                <input id="userPassword" type="password" placeholder="Password...">
+
+
+        <form>
+            <div id="login-form">
+
+                <!--Email-->
+                <div class="input-value">
+                    <input id="user-email" type="text" placeholder="Email...">
+                </div>
+                <!--Password-->
+                <div class="input-value">
+                    <input id="user-password" type="password" placeholder="Password...">
+                </div>
+
+                <!--Submit options-->
+                <div>
+                    <button id="log-in">Log In</button>
+                    <button class="hide" id="sign-out">Sign Out</button>
+                </div>
             </div>
 
-            <!--Submit options-->
-            <div>
-                <button id="Log-In">Log In</button>
-                <button class="hide" id="sign-Out">Sign Out</button>
-            </div>
+        </form>
 
-            <!--status-->
-            <div id="registerUser">
-                <button id="register">Register</button>
-            </div>
+        <!--Register button-->
+        <div id="registeruser">
+            <button id="register">Register</button>
 
+
+
+            <!--Message based on status-->
             <div>
                 <p id="intro"></p>
             </div>
-        </form>
 
 
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
-            authDomain: "eatsmart-group.firebaseapp.com",
-            databaseURL: "https://eatsmart-group.firebaseio.com",
-            projectId: "eatsmart-group",
-            storageBucket: "eatsmart-group.appspot.com",
-            messagingSenderId: "9553700006"
-        };
-        firebase.initializeApp(config);
-    </script>
+            <!--register form, displays on register-->
+            <form>
+                <div id="register-form" class="hide">
+
+                    <!--display name-->
+                    <div class="input-value">
+                        <input id="user-email" type="text" placeholder="Your name">
+                    </div>
 
 
-    <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
+                    <!--Submit options-->
+                    <div>
+                        <button id="submit-register">Submit</button>
+
+                    </div>
+                </div>
+
+            </form>
+
+
+
+
+
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+                authDomain: "eatsmart-group.firebaseapp.com",
+                databaseURL: "https://eatsmart-group.firebaseio.com",
+                projectId: "eatsmart-group",
+                storageBucket: "eatsmart-group.appspot.com",
+                messagingSenderId: "9553700006"
+            };
+            firebase.initializeApp(config);
+        </script>
+
+
+        <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
 </body>
 
 </html>

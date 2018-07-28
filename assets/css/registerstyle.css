@@ -4,7 +4,7 @@ margin-right: 40%;
 margin-top: 10%
 }
 
-form{
+#login-form{
     border: solid grey 5px;
     text-align: center;
     padding: 10%;

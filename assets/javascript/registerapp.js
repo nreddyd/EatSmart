@@ -24,12 +24,12 @@
 
 //LOGGING IN
 //---------------------------------------
-$("#Log-In").on("click", e => {
+$("#log-in").on("click", e => {
 
     event.preventDefault();
 
-    var userEmail = $("#userEmail").val().trim();
-    var userPass = $("#userPassword").val().trim();
+    var userEmail = $("#user-email").val().trim();
+    var userPass = $("#user-password").val().trim();
     var auth = firebase.auth();
 
     //checking to see value input
@@ -48,8 +48,8 @@ $("#register").on("click", e => {
 
     event.preventDefault();
 
-    var userEmail = $("#userEmail").val().trim();
-    var userPass = $("#userPassword").val().trim();
+    var userEmail = $("#user-email").val().trim();
+    var userPass = $("#user-password").val().trim();
     var auth = firebase.auth();
 
     if (userEmail == "") {
@@ -59,11 +59,12 @@ $("#register").on("click", e => {
         alert("missing Pass")
     } else {
         alert("allgood")
-        $("#userName").removeClass("hide");
+        $("#register-form").removeClass("hide");
+        $("#login-form").addClass("hide");
     }
 
     var promise = auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
-        return user.updateProfile({ displayName: $("#userName").val() });
+        return user.updateProfile({ displayName: $("#user-name").val() });
     });
     promise.catch(e => console.log(e.message));
 });
@@ -71,7 +72,7 @@ $("#register").on("click", e => {
 
 //LOGGING OUT
 //---------------------------------------
-$("#sign-Out").on("click", e => {
+$("#sign-out").on("click", e => {
     firebase.auth().signOut();
 });
 
@@ -82,7 +83,7 @@ firebase.auth().onAuthStateChanged(user => {
 
     event.preventDefault();
 
-    var userEmail = $("#userEmail").val().trim();
+    var userEmail = $("#user-email").val().trim();
 
     if (user) {
 
@@ -91,11 +92,11 @@ firebase.auth().onAuthStateChanged(user => {
 
         //FIX: firebaseUser not displaying
         console.log("welcome   " + user);
-        $("#sign-Out").removeClass("hide");
+        $("#sign-out").removeClass("hide");
         $("#register").addClass("hide");
-        $("#Log-In").addClass("hide");
-        $("#userEmail").addClass("hide");
-        $("#userPassword").addClass("hide");
+        $("#log-in").addClass("hide");
+        $("#user-email").addClass("hide");
+        $("#user-password").addClass("hide");
 
         $("#intro").append("YOU ARE LOGGIN IN   " + userEmail);
         var name, email, photoUrl, uid, emailVerified;
