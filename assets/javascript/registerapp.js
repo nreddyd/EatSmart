@@ -1,28 +1,29 @@
-var database = firebase.database();
+// var database = firebase.database();
 
-//Pushing new user data onto database
-$("#register").on("click", function () {
-    database.ref().on("child_added", function (childSnap) {
-        //grabbing input value
-        theName = childSnap.val().theName;
-        theEmail = childSnap.val().theEmail;
-        thePass = childSnap.val().thePass;
-    })
+// //Pushing new user data onto database
+// $("#register").on("click", function () {
+//     database.ref().on("child_added", function (childSnap) {
+//         //grabbing input value
+//         theName = childSnap.val().theName;
+//         theEmail = childSnap.val().theEmail;
+//         thePass = childSnap.val().thePass;
+//     })
 
-    var theName = $("#userName").val().trim();
-    var theEmail = $("#userEmail").val().trim();
-    var thePass = $("#userPassword").val().trim();
+//     var theName = $("#userName").val().trim();
+//     var theEmail = $("#userEmail").val().trim();
+//     var thePass = $("#userPassword").val().trim();
 
-    //object
-    var newUser = {
-        theName: theName,
-        theEmail: theEmail,
-        thePass: thePass
-    }
-    database.ref().push(newUser);
-});
+//     //object
+//     var newUser = {
+//         theName: theName,
+//         theEmail: theEmail,
+//         thePass: thePass
+//     }
+//     database.ref().push(newUser);
+// });
 
-//Logging User In
+//LOGGING IN
+//---------------------------------------
 $("#Log-In").on("click", e => {
 
     event.preventDefault();
@@ -41,7 +42,8 @@ $("#Log-In").on("click", e => {
 })
 
 
-//Creating New User
+//NEW USER
+//---------------------------------------
 $("#register").on("click", e => {
 
     event.preventDefault();
@@ -67,21 +69,28 @@ $("#register").on("click", e => {
 });
 
 
-//Logging User Out
+//LOGGING OUT
+//---------------------------------------
 $("#sign-Out").on("click", e => {
     firebase.auth().signOut();
 });
 
 
-//On state change 
-firebase.auth().onAuthStateChanged(firebaseUser => {
+//CHECK STATUS
+//---------------------------------------
+firebase.auth().onAuthStateChanged(user => {
+
     event.preventDefault();
+
     var userEmail = $("#userEmail").val().trim();
 
-    if (firebaseUser) {
+    if (user) {
+
+        var user = firebase.auth().currentUser;
+
 
         //FIX: firebaseUser not displaying
-        console.log("welcome   " + firebaseUser);
+        console.log("welcome   " + user);
         $("#sign-Out").removeClass("hide");
         $("#register").addClass("hide");
         $("#Log-In").addClass("hide");
@@ -89,7 +98,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         $("#userPassword").addClass("hide");
 
         $("#intro").append("YOU ARE LOGGIN IN   " + userEmail);
+        var name, email, photoUrl, uid, emailVerified;
 
+        if (user != null) {
+            name = user.displayName;
+            email = user.email;
+            photoUrl = user.photoURL;
+        }
 
     } else {
         console.log("not logged in  ");
