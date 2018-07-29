@@ -59,6 +59,7 @@ $("#submit-register").on("click", e => {
 //---------------------------------------
 //Pushing new user data onto database
 $("#submit-register").on("click", function () {
+
     database.ref().on("child_added", function (childSnap) {
         //grabbing input value
         theName = childSnap.val().theName;
@@ -80,6 +81,7 @@ $("#submit-register").on("click", function () {
 
     database.ref().push(newUser);
     console.log(newUser)
+
 });
 
 //LOGGING IN
@@ -121,6 +123,7 @@ $("#register").on("click", e => {
 
 
     alert("allgood")
+    $("#register").addClass("hide");
     $("#register-form").removeClass("hide");
     $("#login-form").addClass("hide");
     $("#newuser-sign-out").addClass("hide");
