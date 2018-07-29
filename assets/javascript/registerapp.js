@@ -33,7 +33,9 @@ $("#submit-register").on("click", e => {
         $("#register-email").addClass("hide");
         $("#register-password").addClass("hide");
         $("#submit-register").addClass("hide");
+        $("#input-diet").addClass("hide");
         $("#newuser-sign-out").removeClass("hide");
+
     }
 
     var promise = auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
@@ -47,6 +49,8 @@ $("#submit-register").on("click", e => {
             'password': userPassword,
             'diet': dietType
         })
+
+        console.log("the diet is" + users.diet.dietType)
     });
     promise.catch(e => console.log(e.message));
 });
@@ -65,22 +69,33 @@ $("#submit-register").on("click", function () {
         theName = childSnap.val().theName;
         theEmail = childSnap.val().theEmail;
         thePass = childSnap.val().thePass;
+        theDiet = childSnap.val().theDiet
     })
 
     var theName = $("#user-name").val().trim();
     var theEmail = $("#register-email").val().trim();
     var thePass = $("#register-password").val().trim();
+    var theDiet = $("#input-diet").val().trim();
+
 
 
     //object
     var newUser = {
-        theName: theName,
-        theEmail: theEmail,
-        thePass: thePass
+        'theName': theName,
+        'theEmail': theEmail,
+        'thePass': thePass,
+        'theDiet': theDiet
     }
 
     database.ref().push(newUser);
     console.log(newUser)
+
+
+    $("#the-diet").append(newUser.theDiet);
+
+    $("#options").addClass("hide");
+    $("#newuser-sign-out").addClass("hide");
+
 
 });
 
@@ -89,9 +104,9 @@ $("#submit-register").on("click", function () {
 $("#log-in").on("click", e => {
 
     event.preventDefault();
-
     var userEmail = $("#user-email").val().trim();
     var userPass = $("#user-password").val().trim();
+    var userDiet = $("#input-diet").val().trim();
     var auth = firebase.auth();
 
     //checking to see value input
@@ -105,6 +120,7 @@ $("#log-in").on("click", e => {
         alert("missing Pass")
     } else {
         alert("Welcome :  " + userEmail)
+
     }
 
 
@@ -166,7 +182,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         event.preventDefault();
 
         console.log("user:", user);
-        var loggedUser = user.displayName;
+        var loggedUser = user.email;
 
 
         //FIX: firebaseUser not displaying
