@@ -138,12 +138,26 @@ $("#log-in").on("click", e => {
 $("#register").on("click", e => {
 
 
-    alert("allgood")
+    alert("Let's register")
     $("#register").addClass("hide");
     $("#register-form").removeClass("hide");
     $("#login-form").addClass("hide");
     $("#newuser-sign-out").addClass("hide");
+    $("#sign-in").addClass("hide");
 });
+
+//REGISTER BUTTON
+//---------------------------------------
+$("#sign-in").on("click", e => {
+
+
+    alert("Let's Log In")
+    $("#login-form").removeClass("hide");
+    $("#sign-in").addClass("hide");
+    $("#register").addClass("hide");
+    $("#register-form").addClass("hide");
+});
+
 
 
 //Creating profile references 
