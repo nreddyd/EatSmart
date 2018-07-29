@@ -32,11 +32,14 @@
                 <!--Submit options-->
                 <div>
                     <button id="log-in">Log In</button>
-                    <button class="hide" id="sign-out">Sign Out</button>
                 </div>
             </div>
-
+            <button class="hide" id="sign-out">Sign Out</button>
         </form>
+
+
+
+
 
         <!--Register button-->
         <div id="registeruser">
@@ -66,7 +69,7 @@
                     <div class="input-value">
                         <input id="register-password" type="password" placeholder="Password...">
                     </div>
-                    <div id="options">
+                    <div id="diet-options">
                         <label for="inputdiet" class="col-form-label">What's your diet?</label>
                         <select id="input-diet" class="form-control">
                             <option value="none">Anything</option>
@@ -77,16 +80,33 @@
                             <option value="Mediterranean">Mediterranean</option>
                         </select>
                     </div>
+                    <div id="allergy-options">
+                        <label for="inputdiet" class="col-form-label">Allergies:</label>
+                        <br>
 
+                        <input id="input-allergy-peanuts" type="checkbox" name="allergy" value="Peanuts">Peanuts
+                        <br>
+                        <input id="input-allergy-allnuts" type="checkbox" name="allergy" value="all-nuts">All Nuts
+                        <br>
+                        <input id="input-allergy-shellfish" type="checkbox" name="allergy" value="shellfish">Shellfish
+                        <br>
+                        <input id="input-allergy-wheat" type="checkbox" name="allergy" value="wheat">Wheat
+                        <br>
+                        <input id="input-allergy-soy" type="checkbox" name="allergy" value="soy">soy
+                        <br>
+                        <input id="input-allergy-eggs" type="checkbox" name="allergy" value="eggs">eggs
+                        <br>
+                    </div>
 
                     <!--Submit options-->
                     <div>
                         <button id="submit-register">Submit</button>
-                        <button id="newuser-sign-out">Sign Out</button>
+                        <button class="hide" id="newuser-sign-out">Sign Out</button>
                     </div>
                 </div>
 
             </form>
+
 
             <div id="display-content">
 

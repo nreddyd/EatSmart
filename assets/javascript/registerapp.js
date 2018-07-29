@@ -2,11 +2,30 @@ var database = firebase.database();
 
 var userUID;
 
+
+//If user selected input checkbox
+// function ischeckBox() {
+
+//     var peanuts = $("#input-allergy-peanuts").val();
+
+//     alert(peanuts);
+//     if (peanuts.checked == true) {
+//         console.log("no," + peanuts);
+//     } else {
+//         console.log("not allergic");
+//     }
+// }
+// ischeckBox()
+
 //NEW USER
 //---------------------------------------
 $("#submit-register").on("click", e => {
 
+
+
     event.preventDefault();
+
+
 
     var userName = $("#user-name").val().trim();
     var userEmail = $("#register-email").val().trim();
@@ -14,6 +33,7 @@ $("#submit-register").on("click", e => {
     var auth = firebase.auth();
 
     var dietType = $("#input-diet").val().trim();
+
 
 
     console.log(userName + "  " + userEmail + "  " + userPass + "  " + dietType)
@@ -34,7 +54,10 @@ $("#submit-register").on("click", e => {
         $("#register-password").addClass("hide");
         $("#submit-register").addClass("hide");
         $("#input-diet").addClass("hide");
+        $("#allergy-options").addClass("hide")
         $("#newuser-sign-out").removeClass("hide");
+
+
 
     }
 
@@ -54,6 +77,13 @@ $("#submit-register").on("click", e => {
     });
     promise.catch(e => console.log(e.message));
 });
+
+
+
+
+
+
+
 
 
 
@@ -93,8 +123,9 @@ $("#submit-register").on("click", function () {
 
     $("#the-diet").append(newUser.theDiet);
 
-    $("#options").addClass("hide");
+    $("#diet-options").addClass("hide");
     $("#newuser-sign-out").addClass("hide");
+    $("#sign-in").addClass("hide");
 
 
 });
@@ -176,6 +207,10 @@ $("#sign-out").on("click", e => {
     firebase.auth().signOut();
 });
 
+$("#newuser-sign-out").on("click", e => {
+    firebase.auth().signOut();
+});
+
 
 
 //Check if user is signed in
@@ -206,9 +241,10 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#log-in").addClass("hide");
         $("#user-email").addClass("hide");
         $("#user-password").addClass("hide");
+        $("#sign-in").addClass("hide");
 
         $("#intro").append("WELCOME: " + loggedUser)
-        console.log("welcome, " + loggedUser);
+        console.log("welcome, " + user.displayName);
 
         if (user != null) {
             console.log("")
