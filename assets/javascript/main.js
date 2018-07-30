@@ -78,27 +78,25 @@ $(document).ready(function() {
     getRecipes(url).then(res => {
       console.log(res);
     });
-
     $(
       "#recipeContent"
-    ).html(`  <select class="browser-default" id="mealPlanOption">
+    ).html(`<select class="browser-default" id="mealPlanOption">
     <option value="" disabled selected>Choose your option</option>
     <option value="breakfast">Breakfast</option>
     <option value="lunch">Lunch</option>
     <option value="dinner">Dinner</option>
     <option value="snack">Snack</option>
+    </select>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="addToMealPlan">Add to meal plan
+    <i class="material-icons right">send</i>
+    </button>`);
 
-  </select>      
-      `);
     $(
       "#recipeButtons"
     ).html(`        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">
         <i class="material-icons right">thumb_up</i>
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Get Recipe!
-        <i class="material-icons right">send</i>
-      </button>
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="addToMealPlan">Add to meal plan
         <i class="material-icons right">send</i>
       </button>`);
 
@@ -107,45 +105,19 @@ $(document).ready(function() {
       switch (course) {
         case "breakfast":
           mealPlan.breakfast.id = recipeid;
-          getRecipes(url).then(res => {
-            $("#breakfast").html(`<div> <img src = ${
-              res.images[0].hostedSmallUrl
-            }>
-            <b><p> ${recipeid
-              .split("-")
-              .slice(0, -1)
-              .join(" ")}</p></b></div>`);
-          });
+          addMealToCalander(course, recipeid);
           break;
         case "lunch":
           mealPlan.lunch.id = recipeid;
-          getRecipes(url).then(res => {
-            $("#lunch").html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
-            <b><p> ${recipeid
-              .split("-")
-              .slice(0, -1)
-              .join(" ")}</p></b></div>`);
-          });
+          addMealToCalander(course, recipeid);
           break;
         case "dinner":
           mealPlan.dinner.id = recipeid;
-          getRecipes(url).then(res => {
-            $("#dinner").html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
-            <b><p> ${recipeid
-              .split("-")
-              .slice(0, -1)
-              .join(" ")}</p></b></div>`);
-          });
+          addMealToCalander(course, recipeid);
           break;
         case "snack":
           mealPlan.snack.id = recipeid;
-          getRecipes(url).then(res => {
-            $("#snacks").html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
-            <b><p> ${recipeid
-              .split("-")
-              .slice(0, -1)
-              .join(" ")}</p></b></div>`);
-          });
+          addMealToCalander(course, recipeid);
           break;
       }
     });
@@ -183,6 +155,20 @@ $(document).ready(function() {
       </div>`);
 
     $("#recipeList").append(recipeDiv);
+  }
+
+  function addMealToCalander(course, recipeID) {
+    var url =
+      "http://api.yummly.com/v1/api/recipe/" +
+      recipeID +
+      "?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f";
+    getRecipes(url).then(res => {
+      $("#" + course).html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
+            <b><p> ${recipeID
+              .split("-")
+              .slice(0, -1)
+              .join(" ")}</p></b></div>`);
+    });
   }
 });
 
