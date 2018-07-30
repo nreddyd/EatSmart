@@ -45,43 +45,15 @@
                     </select>
                 </div>
                 <div id="allergy-options">
-                    <select multiple id="allergy">
-                        <option value="" disabled selected>Choose your allergy</option>
-                        <div>
-                            <label for="inputdiet" class="col-form-label">Allergies:</label>
-                            <br>
-                        </div>
-                        <div>
-                            <option id="input-allergy-peanuts" type="checkbox" name="allergy" value="Peanuts">
-                                <label for="other">Peanut Free</label>
-                                <br>
-                        </div>
-                        <div>
-                            <option id="input-allergy-allnuts" type="checkbox" name="allergy" value="all-nuts">
-                                <label for="other">Tree Nut Free</label>
-                                <br>
-                        </div>
-                        <div>
-                            <option id="input-allergy-shellfish" type="checkbox" name="allergy" value="shellfish">
-                                <label for="other">Shellfish Free</label>
-                                <br>
-                        </div>
-                        <div>
-                            <option id="input-allergy-wheat" type="checkbox" name="allergy" value="wheat">
-                                <label for="other">Wheat Free</label>
-                                <br>
-
-                        </div>
-                        <div>
-                            <option id="input-allergy-soy" type="checkbox" name="allergy" value="soy">
-                                <label for="other">Soy Free</label>
-                                <br>
-                        </div>
-                        <div>
-                            <option id="input-allergy-eggs" type="checkbox" name="allergy" value="eggs">
-                                <label for="other">Egg Free</label>
-                                <br>
-                        </div>
+                    <label for="inputallergy" class="col-form-label">Do you have an allergy?</label>
+                    <select id="input-allergy" class="form-control">
+                        <option disabled selected>Any Allergies</option>
+                        <option value="no-peanuts">Peanut Free</option>
+                        <option value="no-shellfish">Shellfish Free</option>
+                        <option value="no-treenuts">Tree Nut Free</option>
+                        <option value="no-wheat">Wheat Free</option>
+                        <option value="no-soy">Soy Free</option>
+                        <option value="no-egg">Egg Free</option>
                     </select>
                 </div>
 

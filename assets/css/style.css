@@ -1,0 +1,14 @@
+html {
+  min-height: 100%;
+}
+
+/* hide sign in buttons */
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background: url("../images/homepagebackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

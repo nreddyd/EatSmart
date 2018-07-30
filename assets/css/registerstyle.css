@@ -45,6 +45,12 @@ input {
     margin: 6%;
 }
 
+#input-allergy{
+    border: black 2px solid;
+    margin: 6%;
+}
+
+
 #sign-in {
     background: lightsalmon;
     border-radius: 20%;

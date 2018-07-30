@@ -16,9 +16,10 @@ $("#submit-register").on("click", function (event) {
 
 
     var dietType = $("#input-diet").val().trim();
+    var anyAllergy = $("#input-allergy").val().trim();
 
     console.log(
-        "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType);
+        "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
 
 
     if (userEmail == "") {
@@ -40,7 +41,8 @@ $("#submit-register").on("click", function (event) {
             "email": userEmail,
             "name": userName,
             "pass": userPass,
-            "diet": dietType
+            "diet": dietType,
+            "allergy": anyAllergy
         });
     })
         .catch(function (error) {

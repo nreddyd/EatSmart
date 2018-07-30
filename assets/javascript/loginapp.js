@@ -7,7 +7,6 @@ $("#log-in").on("click", e => {
     event.preventDefault();
     var userEmail = $("#user-email").val().trim();
     var userPass = $("#user-password").val().trim();
-    var userDiet = $("#input-diet").val();
     var auth = firebase.auth();
 
     //checking to see value input
@@ -23,7 +22,7 @@ $("#log-in").on("click", e => {
         alert("Welcome : " + userEmail)
 
     }
-
+    window.location.href = "Homepage.html";
 
     auth.signInWithEmailAndPassword(userEmail, userPass)
         .then(function (user) {
