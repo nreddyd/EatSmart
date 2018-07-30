@@ -62,10 +62,17 @@ $(document).ready(function() {
 
   // Get recipe link
   $(document).on('click', '.recipe', function(event) {
-    console.log('get recipe');
+    var recipeid = event.currentTarget.id;
 
+    var url =
+      'http://api.yummly.com/v1/api/recipe/' +
+      recipeid +
+      '?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f';
 
-
+      getRecipes(url).then(res => {
+        console.log(res)
+      }
+      )
 
     $(
       '#recipeButtons'
@@ -79,9 +86,6 @@ $(document).ready(function() {
         <i class="material-icons right">send</i>
       </button>`);
   });
-
-
-
 
   // Supplementary Functions
   // make AJAX call
@@ -106,10 +110,10 @@ $(document).ready(function() {
       <div class="card-stacked">
         <div class="card-content">
             <img id=${recipe.id} src=${recipe.smallImageUrls}>
-            <a class="recipe">${recipe.id
-              .split('-')
-              .slice(0, -1)
-              .join(' ')}</a>
+            <a id=${recipe.id} class="recipe">${recipe.id
+      .split('-')
+      .slice(0, -1)
+      .join(' ')}</a>
         </div>
       </div>`);
 
