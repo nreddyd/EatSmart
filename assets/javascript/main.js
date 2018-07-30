@@ -43,16 +43,7 @@ $(document).ready(function() {
       .join('')}`;
     console.log(url);
 
-    async function getRecipes() {
-      const result = await $.ajax({
-        url: url,
-        method: 'GET'
-      });
-
-      return result;
-    }
-
-    getRecipes()
+    getRecipes(url)
       .then(res => {
         $('#recipeList').empty();
         console.log(res);
@@ -73,6 +64,9 @@ $(document).ready(function() {
   $(document).on('click', '.recipe', function(event) {
     console.log('get recipe');
 
+
+
+
     $(
       '#recipeButtons'
     ).html(`        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">
@@ -86,7 +80,20 @@ $(document).ready(function() {
       </button>`);
   });
 
+
+
+
   // Supplementary Functions
+  // make AJAX call
+  async function getRecipes(url) {
+    const result = await $.ajax({
+      url: url,
+      method: 'GET'
+    });
+
+    return result;
+  }
+
   //  add images functions
   function addImages(course, recipe) {
     // image = $('<img>')
