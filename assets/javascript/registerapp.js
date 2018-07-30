@@ -18,9 +18,15 @@ $("#submit-register").on("click", function (event) {
     var dietType = $("#input-diet").val().trim();
     var anyAllergy = $("#input-allergy").val().trim();
 
+
+
     console.log(
         "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
 
+    $("#the-name").html(userName);
+    $("#the-email").html(userEmail);
+    $("#the-diet").html(dietType);
+    $("#the-allergy").html(anyAllergy);
 
     if (userEmail == "") {
         alert("missing email")
@@ -33,8 +39,11 @@ $("#submit-register").on("click", function (event) {
     }
 
     auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
+        user.updateProfile({ displayName: $("#user-name").val() });
+        console.log(user.displayName);
 
         userUID = user.uid;
+
 
         // create a new Node
         database.ref("/Users/" + userUID).set({
@@ -50,8 +59,7 @@ $("#submit-register").on("click", function (event) {
             console.log(error.message);
         })
         .then(function () {
-            window.location.href = "Homepage.html";
-            $("#intro").append("WELCOME: " + user.email)
+            window.location.href = "index.html";
         });
 
 });
@@ -70,7 +78,7 @@ $("#register").on("click", e => {
 
 //REGISTER BUTTON
 //---------------------------------------
-$("#sign-in").on("click", e => {
+$("#sign-in-email").on("click", e => {
 
 
     alert("Let's Log In")
@@ -83,9 +91,9 @@ $("#sign-in").on("click", e => {
 
 //LOGGING OUT
 //---------------------------------------
-$("#sign-out").on("click", e => {
+$("#log-out").on("click", e => {
     firebase.auth().signOut();
-
-    $("#intro").addClass("hide");
+    window.location.href = "index.html";
+    alert("your logged out!")
 });
 

@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </style>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/registerstyle.css">
 </head>
 
 <body>
@@ -31,16 +32,22 @@
           <a href="collapsible.html">Favourites</a>
         </li>
         <li>
-          <a href="collapsible.html">Register</a>
+          <a href="registerindex.html">Register</a>
+        </li>
+        <li id="log-out">
+          <a href="index.html">Log Out</a>
         </li>
         <li>
-          <a id="sign-in" class="waves-effect waves-light btn-small">
-            <i class="material-icons left">account_circle</i>Sign-in with Google</a>
-        </li>
-        <li>
-          <a id="sign-out" class="waves-effect waves-light btn-small">
-            <i class="material-icons left">exit_to_app</i>Sign-out</a>
-        </li>
+          <a id="sign-in-email" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+          <i class="material-icons left"></i>
+          <li>
+            <a id="sign-in" class="waves-effect waves-light btn-small">
+              <i class="material-icons left">account_circle</i>Sign-in with Google</a>
+          </li>
+          <li>
+            <a id="sign-out" class="waves-effect waves-light btn-small">
+              <i class="material-icons left">exit_to_app</i>Sign-out</a>
+          </li>
       </ul>
     </div>
   </nav>
@@ -55,8 +62,19 @@
     <li>
       <a href="collapsible.html">Favourites</a>
     </li>
+    <li id="reg">
+      <a href="registerindex.html">Register</a>
+    </li>
+    <li id="log-out">
+      <a href="index.html">Log Out</a>
+    </li>
     <li>
-      <a href="collapsible.html">Register</a>
+      <a id="sign-in-email" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+      <i class="material-icons left"></i>
+    </li>
+    <li>
+      <a class="hide" id="user-profile" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+      <i class="material-icons left"></i>
     </li>
     <li>
       <a id="sign-in" class="btn waves-effect waves-light btn-small">
@@ -159,6 +177,19 @@
     </div>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+      authDomain: "eatsmart-group.firebaseapp.com",
+      databaseURL: "https://eatsmart-group.firebaseio.com",
+      projectId: "eatsmart-group",
+      storageBucket: "eatsmart-group.appspot.com",
+      messagingSenderId: "9553700006"
+    };
+    firebase.initializeApp(config);
+  </script>
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
@@ -168,11 +199,17 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script> -->
   <!-- import funnctions -->
   <script src="./assets/javascript/functions.js"></script>
   <!-- app JS code -->
   <script src="assets/javascript/main.js"></script>
+
+  <!--Register JS-->
+  <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
+
+  <!--Login with email and password JS-->
+  <script type="text/javascript" src="./assets/javascript/loginapp.js"></script>
 </body>
 
 </html>

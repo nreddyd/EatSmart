@@ -20,9 +20,10 @@ $("#log-in").on("click", e => {
         alert("missing Pass")
     } else {
         alert("Welcome : " + userEmail)
+        window.location.href = "index.html";
 
     }
-    window.location.href = "Homepage.html";
+
 
     auth.signInWithEmailAndPassword(userEmail, userPass)
         .then(function (user) {
@@ -33,6 +34,12 @@ $("#log-in").on("click", e => {
         });
     alert("YOUR ARE LOGGED IN")
 
+
+    $("#intro").append("WELCOME: " + user.email)
+    $("#reg").addClass("hide");
+    $("#sign-in-email").addClass("hide");
+    $("#sign-in").addClass("hide");
+    $("#log-out").removeClass("hide")
 });
 
 
@@ -54,15 +61,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     if (user != null) {
         event.preventDefault();
-        $("#sign-out").removeClass("hide");
         $("#intro").append("WELCOME: " + user.email)
+        $("#reg").addClass("hide");
+        $("#sign-in-email").addClass("hide");
+        $("#sign-in").addClass("hide");
+        $("#log-out").removeClass("hide")
     }
 
     else {
-
         console.log("not logged in");
-        $("#sign-out").addClass("hide");
-        $("#profile").addClass("hide");
     }
 });
 
