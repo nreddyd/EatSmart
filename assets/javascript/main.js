@@ -69,14 +69,13 @@ $(document).ready(function() {
       recipeid +
       '?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f';
 
-      getRecipes(url).then(res => {
-        console.log(res)
-      }
-      )
+    getRecipes(url).then(res => {
+      console.log(res);
+    });
 
     $(
       '#recipeButtons'
-    ).html(`        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">
+    ).html(`        <button class="btn waves-effect waves-light" type="submit" name="action" class="favourite" id=${recipeid}>
         <i class="material-icons right">thumb_up</i>
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Get Recipe!

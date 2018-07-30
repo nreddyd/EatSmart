@@ -60,13 +60,17 @@ function authStateObserver(user) {
     // Hide sign-in button.
     signInButtonElement.addClass('hidden');
     console.log(user.uid);
+
     // create firebase database for each user
     var userdb = firebase.database().ref(`/favs_${user.uid}/`);
 
-    $('#left')
-      .html(`  <button id="Pesto-Shredded-Chicken-Stuffed-Mushrooms-2468837">Favorite</button>
-    <button id="add-calendar">Add to Calendar</button>
-    `);
+    // if fav is clicked save recipe to firebase
+  // favourite button
+  $(document).on('click', '.favourite', function(event) {
+    console.log("clicked")
+    console.log($(this));
+
+  });
 
     $('button').on('click', function() {
       console.log($(this)[0].id);
@@ -90,7 +94,11 @@ function authStateObserver(user) {
     signInButtonElement.removeClass('hidden');
     console.log(user);
 
-    $('#left').html('');
+    $(document).on('click', '.favourite', function(event) {
+      console.log("clicked")
+      console.log($(this));
+  
+    });
   }
 }
 
