@@ -15,106 +15,87 @@
 
 <body>
     <div id="container">
+        <h1>REGISTER PAGE</h1>
 
-
+        <!--register form, displays on register-->
         <form>
-            <div id="login-form" class="hide">
+            <div id="register-form">
 
-                <!--Email-->
+                <!--display name-->
                 <div class="input-value">
-                    <input id="user-email" type="text" placeholder="Email...">
+                    <input id="user-name" type="text" placeholder="Your name">
+                </div>
+
+                <div class="input-value">
+                    <input id="register-email" type="text" placeholder="Email...">
                 </div>
                 <!--Password-->
                 <div class="input-value">
-                    <input id="user-password" type="password" placeholder="Password...">
+                    <input id="register-password" type="password" placeholder="Password...">
+                </div>
+                <div id="diet-options">
+                    <label for="inputdiet" class="col-form-label">What's your diet?</label>
+                    <select id="input-diet" class="form-control">
+                        <option value="none">Anything</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="ketogenic">Keto</option>
+                        <option value="Paleo">Paleo</option>
+                        <option value="Mediterranean">Mediterranean</option>
+                    </select>
+                </div>
+                <div id="allergy-options">
+                    <select multiple id="allergy">
+                        <option value="" disabled selected>Choose your allergy</option>
+                        <div>
+                            <label for="inputdiet" class="col-form-label">Allergies:</label>
+                            <br>
+                        </div>
+                        <div>
+                            <option id="input-allergy-peanuts" type="checkbox" name="allergy" value="Peanuts">
+                                <label for="other">Peanut Free</label>
+                                <br>
+                        </div>
+                        <div>
+                            <option id="input-allergy-allnuts" type="checkbox" name="allergy" value="all-nuts">
+                                <label for="other">Tree Nut Free</label>
+                                <br>
+                        </div>
+                        <div>
+                            <option id="input-allergy-shellfish" type="checkbox" name="allergy" value="shellfish">
+                                <label for="other">Shellfish Free</label>
+                                <br>
+                        </div>
+                        <div>
+                            <option id="input-allergy-wheat" type="checkbox" name="allergy" value="wheat">
+                                <label for="other">Wheat Free</label>
+                                <br>
+
+                        </div>
+                        <div>
+                            <option id="input-allergy-soy" type="checkbox" name="allergy" value="soy">
+                                <label for="other">Soy Free</label>
+                                <br>
+                        </div>
+                        <div>
+                            <option id="input-allergy-eggs" type="checkbox" name="allergy" value="eggs">
+                                <label for="other">Egg Free</label>
+                                <br>
+                        </div>
+                    </select>
                 </div>
 
-                <!--Submit options-->
-                <div>
-                    <button id="log-in">Log In</button>
-                </div>
-            </div>
-            <button class="hide" id="sign-out">Sign Out</button>
+                <button id="submit-register">Submit</button>
         </form>
 
 
+        <div id="display-content">
 
+            <div id="the-name"></div>
+            <div id="the-email"></div>
+            <div id="the-diet"></div>
 
-
-        <!--Register button-->
-        <div id="registeruser">
-            <button id="register">Register</button>
-            <button id="sign-in">sign-in</button>
-
-
-            <!--Message based on status-->
-            <div>
-                <p id="intro"></p>
-            </div>
-
-
-            <!--register form, displays on register-->
-            <form>
-                <div id="register-form" class="hide">
-
-                    <!--display name-->
-                    <div class="input-value">
-                        <input id="user-name" type="text" placeholder="Your name">
-                    </div>
-
-                    <div class="input-value">
-                        <input id="register-email" type="text" placeholder="Email...">
-                    </div>
-                    <!--Password-->
-                    <div class="input-value">
-                        <input id="register-password" type="password" placeholder="Password...">
-                    </div>
-                    <div id="diet-options">
-                        <label for="inputdiet" class="col-form-label">What's your diet?</label>
-                        <select id="input-diet" class="form-control">
-                            <option value="none">Anything</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="ketogenic">Keto</option>
-                            <option value="Paleo">Paleo</option>
-                            <option value="Mediterranean">Mediterranean</option>
-                        </select>
-                    </div>
-                    <div id="allergy-options">
-                        <label for="inputdiet" class="col-form-label">Allergies:</label>
-                        <br>
-
-                        <input id="input-allergy-peanuts" type="checkbox" name="allergy" value="Peanuts">Peanuts
-                        <br>
-                        <input id="input-allergy-allnuts" type="checkbox" name="allergy" value="all-nuts">All Nuts
-                        <br>
-                        <input id="input-allergy-shellfish" type="checkbox" name="allergy" value="shellfish">Shellfish
-                        <br>
-                        <input id="input-allergy-wheat" type="checkbox" name="allergy" value="wheat">Wheat
-                        <br>
-                        <input id="input-allergy-soy" type="checkbox" name="allergy" value="soy">soy
-                        <br>
-                        <input id="input-allergy-eggs" type="checkbox" name="allergy" value="eggs">eggs
-                        <br>
-                    </div>
-
-                    <!--Submit options-->
-                    <div>
-                        <button id="submit-register">Submit</button>
-                        <button class="hide" id="newuser-sign-out">Sign Out</button>
-                    </div>
-                </div>
-
-            </form>
-
-
-            <div id="display-content">
-
-                <div id="the-name"></div>
-                <div id="the-email"></div>
-                <div id="the-diet"></div>
-
-            </div>
+        </div>
 
 
 
@@ -135,6 +116,7 @@
 
 
         <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
+        <script type="text/javascript" src="./assets/javascript/loginapp.js"></script>
 </body>
 
 </html>
