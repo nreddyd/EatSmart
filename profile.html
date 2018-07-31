@@ -65,25 +65,16 @@
 
         <div class="profile-content">
 
-            <figure class="profileBox">
-                <h1>My ACCOUNT:</h1>
-                <div id="display-content">
+            <h1 id="intro"></h1>
 
-                    <div id="the-name"></div>
-                    <div id="the-email"></div>
-                    <div id="the-diet"></div>
+            <div class="image">
+                <img id="profilePicture" src="" alt="Profile Picture" />
+            </div>
+            <div class="position">
+                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" style="font-size: 12px;">
+                <p id="imgError"></p>
+            </div>
 
-                </div>
-                </figcaption>
-
-                <div class="image">
-                    <img id="profilePicture" src="" alt="Profile Picture" />
-                </div>
-                <div class="position">
-                    <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" style="font-size: 12px;">
-                    <p id="imgError"></p>
-                </div>
-            </figure>
 
         </div>
     </div>
@@ -111,12 +102,6 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-    <!-- import funnctions -->
-    <script src="./assets/javascript/functions.js"></script>
-    <!-- app JS code -->
-    <script src="assets/javascript/main.js"></script>
 
     <!--Register JS-->
     <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>

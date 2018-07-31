@@ -32,20 +32,24 @@
           <a href="collapsible.html">Favourites</a>
         </li>
         <li>
-          <a href="registerindex.html">Register</a>
+          <a class="onlogin" href="registerindex.html">Register</a>
+        </li>
+        <li>
+          <a class="hide" id="user-profile" class="waves-effect waves-light btn-small" href="profile.html">My Profile</a>
+          <i class="material-icons left"></i>
         </li>
         <li id="log-out">
           <a href="index.html">Log Out</a>
         </li>
         <li>
-          <a id="sign-in-email" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+          <a class="onlogin waves-effect waves-light btn-small" id="sign-in-email" href="signin.html">Login</a>
           <i class="material-icons left"></i>
           <li>
-            <a id="sign-in" class="waves-effect waves-light btn-small">
+            <a class="onlogin waves-effect waves-light btn-small" id="sign-in">
               <i class="material-icons left">account_circle</i>Sign-in with Google</a>
           </li>
           <li>
-            <a id="sign-out" class="waves-effect waves-light btn-small">
+            <a class="onlogin waves-effect waves-light btn-small" id="sign-out">
               <i class="material-icons left">exit_to_app</i>Sign-out</a>
           </li>
       </ul>
@@ -62,28 +66,28 @@
     <li>
       <a href="collapsible.html">Favourites</a>
     </li>
-    <li id="reg">
+    <li class="onlogin">
       <a href="registerindex.html">Register</a>
     </li>
-    <li id="log-out">
-      <a href="index.html">Log Out</a>
+    <li>
+      <a id="log-out" class="hide" href="index.html">Log Out</a>
     </li>
     <li>
-      <a id="sign-in-email" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+      <a id="sign-in-email" class="onlogin waves-effect waves-light btn-small" href="signin.html">Login</a>
       <i class="material-icons left"></i>
     </li>
     <li>
-      <a class="hide" id="user-profile" class="waves-effect waves-light btn-small" href="signin.html">Login</a>
+      <a id="user-profile" class="onlogin hide waves-effect waves-light btn-small" href="profile.html">My Profile</a>
       <i class="material-icons left"></i>
     </li>
     <li>
-      <a id="sign-in" class="btn waves-effect waves-light btn-small">
+      <a id="sign-in" class="onlogin btn waves-effect waves-light btn-small">
         <i class="material-icons left">account_circle</i>
         <h6>Sign-in with Google</h6>
       </a>
     </li>
     <li>
-      <a id="sign-out" class="waves-effect waves-light btn-small">
+      <a id="sign-out" class=" onlogin waves-effect waves-light btn-small">
         <i class="material-icons left">exit_to_app</i>Sign-out</a>
     </li>
   </ul>
