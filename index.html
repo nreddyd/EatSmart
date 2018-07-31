@@ -28,7 +28,7 @@
           <a href="badges.html">Settings</a>
         </li>
         <li>
-          <a href="collapsible.html">Favourites</a>
+          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites<i class="material-icons right">arrow_drop_down</i></a>
         </li>
         <li>
           <a href="collapsible.html">Register</a>
@@ -45,6 +45,14 @@
     </div>
   </nav>
 
+<!-- Dropdown Structure for uncollapsed navbar -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
   <ul class="sidenav" id="mobile-demo">
     <li>
       <a href="sass.html">How it works</a>
@@ -53,7 +61,7 @@
       <a href="badges.html">Settings</a>
     </li>
     <li>
-      <a href="collapsible.html">Favourites</a>
+      <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites<i class="material-icons right">arrow_drop_down</i></a>
     </li>
     <li>
       <a href="collapsible.html">Register</a>
@@ -69,6 +77,15 @@
         <i class="material-icons left">exit_to_app</i>Sign-out</a>
     </li>
   </ul>
+
+<!-- Dropdown Structure for collapsed navbar -->
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
 
   <div class="container">
     <div class="row">
@@ -113,6 +130,7 @@
 
         <div id="recipeContent" style="min-height: 60vh">
         </div>
+        <div id="testImage"></div>
         <div id="recipeButtons">
 
         </div>
