@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#intro").append("WELCOME: " + user.email);
         $(".onlogin").addClass("hide");
         $("#user-profile").removeClass("hide");
+        $("#log-out").removeClass("hide");
 
     }
 
