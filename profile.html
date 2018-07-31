@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EatSmart</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Materalize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">EatSmart</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="index.html">HOME</a>
+                </li>
+                <li>
+                    <a href="sass.html">How it works</a>
+                </li>
+                <li>
+                    <a href="badges.html">Settings</a>
+                </li>
+                <li>
+                    <a href="collapsible.html">Favourites</a>
+                </li>
+                <li>
+                    <a id="sign-out" class="waves-effect waves-light btn-small">
+                        <i class="material-icons left">exit_to_app</i>Sign-out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="index.html">HOME</a>
+        </li>
+        <li>
+            <a href="sass.html">How it works</a>
+        </li>
+        <li>
+            <a href="badges.html">Settings</a>
+        </li>
+        <li>
+            <a href="collapsible.html">Favourites</a>
+        </li>
+
+        <li>
+            <a id="sign-out" class="waves-effect waves-light btn-small">
+                <i class="material-icons left">exit_to_app</i>Sign-out</a>
+        </li>
+    </ul>
+
+    <div class="container">
+
+        <div class="profile-content">
+
+            <h1 id="intro"></h1>
+
+            <div class="image">
+                <img id="profilePicture" src="" alt="Profile Picture" />
+            </div>
+            <div class="position">
+                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" style="font-size: 12px;">
+                <p id="imgError"></p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--ADDING DATABASE-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+            authDomain: "eatsmart-group.firebaseapp.com",
+            databaseURL: "https://eatsmart-group.firebaseio.com",
+            projectId: "eatsmart-group",
+            storageBucket: "eatsmart-group.appspot.com",
+            messagingSenderId: "9553700006"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <!--Register JS-->
+    <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
+
+    <!--Login with email and password JS-->
+    <script type="text/javascript" src="./assets/javascript/loginapp.js"></script>
+
+    <!--Profile logic-->
+    <script type="text/javascript" src="./assets/javascript/profilelogic.js"></script>
+</body>
+
+</html>

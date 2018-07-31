@@ -1,0 +1,41 @@
+#container {
+margin-left: 40%;
+margin-right: 40%;
+margin-top: 10%
+}
+
+#login-form{
+    border: solid grey 5px;
+    text-align: center;
+    padding: 10%;
+}
+
+.input-value {
+    margin: 5%;
+}
+
+.hide {
+    display: none;
+}
+
+#registerUser{
+    margin-top: 20px;
+}
+
+
+
+input {
+    border: black 2px solid;
+}
+
+#input-diet{
+    border: black 2px solid;
+    margin: 6%;
+}
+
+#input-allergy{
+    border: black 2px solid;
+    margin: 6%;
+}
+
+
