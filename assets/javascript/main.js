@@ -32,15 +32,17 @@ $(document).ready(function() {
 
   $('#submit').on('click', function(e) {
     event.preventDefault();
+
+
+    var diets = $("#diet").val();
+    var cuisines = $("#cuisine").val();
+    var courses = $("#course").val();
+    var holidays = $("#holiday").val();
+    var time = parseInt($("#time").val()) * 60;
+    var requiredPictures = true;
     var searchPhrase = $('#meal').val();
     var allergies = $('#allergy').val();
-    // var diets = $('#diet').val();
-    // var cuisines = $('#cuisine').val();
-    // var courses = $('#course').val();
-    // var holidays = $('#holiday').val();
-    // var time = parseInt($('#time').val()) * 60;
 
-    // var requiredPictures = true;
     var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
       ' ',
       '+'
@@ -82,8 +84,37 @@ $(document).ready(function() {
 
     getRecipes(url).then(res => {
       console.log(res);
-      selectRef.set(res);
 
+
+      $("#recipeContent").empty();
+      var recipeDiv = $("<div>");
+      // Creating an image tag
+      var recipeImage = $("<img>");
+      // Giving the image tag an src attribute of a proprty pulled off the
+      // result item
+      recipeImage.attr(
+        "src",
+        res.images[0].hostedMediumUrl,
+        "class='center-align'"
+      );
+      // Appending the paragraph (the name, the time, ingredients)
+      var pCourse = res.attributes.course[0];
+      var pTime = res.totalTime;
+      var pName = res.name;
+      var pServings = res.numberOfServings;
+      recipeDiv.append(recipeImage);
+      recipeDiv.append("<h5>" + pName + "</h5>");
+      recipeDiv.append("Course: " + pCourse + "<br>");
+      recipeDiv.append("Time: " + pTime + "<br>");
+      var pIngr = $("<p>").text("Ingredients: ");
+      recipeDiv.append(pIngr);
+      for (var i = 0; i < res.ingredientLines.length; i++) {
+        pIngr = res.ingredientLines[i];
+        recipeDiv.append(pIngr + "<br>");
+      }
+      $("#recipeContent").append(recipeDiv);
+    });
+      selectRef.set(res);
       // add image to recipeContent
       $('#testImage').html(`<img src=${res.images[0].hostedMediumUrl}>`);
     });
@@ -99,6 +130,7 @@ $(document).ready(function() {
     <button class="btn waves-effect waves-light" type="submit" name="action" id="addToMealPlan">Add to meal plan
     <i class="material-icons right">send</i>
     </button>`);
+
 
     $(
       '#recipeButtons'
