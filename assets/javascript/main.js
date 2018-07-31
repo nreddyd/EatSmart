@@ -3,6 +3,12 @@ $(document).ready(function() {
   $(".sidenav").sidenav();
   $("select").formSelect();
 
+  var mealPlan = {
+    breakfast: "",
+    lunch: "",
+    dinner: "",
+    snack: ""
+  };
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
@@ -26,6 +32,7 @@ $(document).ready(function() {
     event.preventDefault();
     var searchPhrase = $("#meal").val();
     var allergies = $("#allergy").val();
+<<<<<<< HEAD
     var diets = $("#diet").val();
     var cuisines = $("#cuisine").val();
     var courses = $("#course").val();
@@ -33,6 +40,15 @@ $(document).ready(function() {
     var time = parseInt($("#time").val()) * 60;
 
     var requiredPictures = true;
+=======
+    // var diets = $('#diet').val();
+    // var cuisines = $('#cuisine').val();
+    // var courses = $('#course').val();
+    // var holidays = $('#holiday').val();
+    // var time = parseInt($('#time').val()) * 60;
+
+    // var requiredPictures = true;
+>>>>>>> 92cdc5ae7c3ad6e376455f0d98a14ff46460d5c6
     var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
       " ",
       "+"
@@ -71,6 +87,7 @@ $(document).ready(function() {
 
     getRecipes(url).then(res => {
       console.log(res);
+<<<<<<< HEAD
       $("#recipeContent").empty();
       var recipeDiv = $("<div>");
       // Creating an image tag
@@ -99,6 +116,21 @@ $(document).ready(function() {
       }
       $("#recipeContent").append(recipeDiv);
     });
+=======
+    });
+    $(
+      "#recipeContent"
+    ).html(`<select class="browser-default" id="mealPlanOption">
+    <option value="" disabled selected>Choose your option</option>
+    <option value="breakfast">Breakfast</option>
+    <option value="lunch">Lunch</option>
+    <option value="dinner">Dinner</option>
+    <option value="snack">Snack</option>
+    </select>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="addToMealPlan">Add to meal plan
+    <i class="material-icons right">send</i>
+    </button>`);
+>>>>>>> 92cdc5ae7c3ad6e376455f0d98a14ff46460d5c6
 
     $(
       "#recipeButtons"
@@ -107,10 +139,29 @@ $(document).ready(function() {
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Get Recipe!
         <i class="material-icons right">send</i>
-      </button>
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Add to meal plan
-        <i class="material-icons right">send</i>
       </button>`);
+
+    $("#addToMealPlan").on("click", function() {
+      var course = $("#mealPlanOption").val();
+      switch (course) {
+        case "breakfast":
+          mealPlan.breakfast.id = recipeid;
+          addMealToCalander(course, recipeid);
+          break;
+        case "lunch":
+          mealPlan.lunch.id = recipeid;
+          addMealToCalander(course, recipeid);
+          break;
+        case "dinner":
+          mealPlan.dinner.id = recipeid;
+          addMealToCalander(course, recipeid);
+          break;
+        case "snack":
+          mealPlan.snack.id = recipeid;
+          addMealToCalander(course, recipeid);
+          break;
+      }
+    });
   });
 
   // Supplementary Functions
@@ -136,6 +187,7 @@ $(document).ready(function() {
       <div class="card-stacked">
         <div class="card-content">
             <img id=${recipe.id} src=${recipe.smallImageUrls}>
+            <br>
             <a id=${recipe.id} class="recipe">${recipe.id
       .split("-")
       .slice(0, -1)
@@ -145,4 +197,29 @@ $(document).ready(function() {
 
     $("#recipeList").append(recipeDiv);
   }
+
+  function addMealToCalander(course, recipeID) {
+    var url =
+      "http://api.yummly.com/v1/api/recipe/" +
+      recipeID +
+      "?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f";
+    getRecipes(url).then(res => {
+      $("#" + course).html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
+            <b><p> ${recipeID
+              .split("-")
+              .slice(0, -1)
+              .join(" ")}</p></b></div>`);
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems, options);
+});
+
+// Or with jQuery
+
+$(document).ready(function() {
+  $("select").formSelect();
 });
