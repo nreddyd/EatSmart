@@ -1,8 +1,4 @@
-#container {
-margin-left: 40%;
-margin-right: 40%;
-margin-top: 10%
-}
+
 
 #login-form{
     border: solid grey 5px;
@@ -22,11 +18,20 @@ margin-top: 10%
     margin-top: 20px;
 }
 
-
-
-input {
-    border: black 2px solid;
+#register{
+    background: lightsalmon;
+    border-radius: 20%;
+    width: 100px;
+    margin: 5%;
 }
+
+#submit-register{
+    background: lightsalmon;
+    border-radius: 20%;
+    width: 100px;
+    margin: 5%;
+}
+
 
 #input-diet{
     border: black 2px solid;
@@ -37,5 +42,3 @@ input {
     border: black 2px solid;
     margin: 6%;
 }
-
-
