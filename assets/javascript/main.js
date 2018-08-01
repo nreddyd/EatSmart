@@ -204,6 +204,7 @@ $(document).ready(function() {
   $(document).on("click", ".recipe", function(event) {
     var recipeid = event.currentTarget.id;
     var image = "";
+    var recipeUrl = "";
     var url =
       "https://api.yummly.com/v1/api/recipe/" +
       recipeid +
@@ -212,7 +213,7 @@ $(document).ready(function() {
     getRecipes(url).then(res => {
       console.log(res);
       image = res.images[0].hostedMediumUrl;
-
+      recipeUrl = res.source.sourceRecipeUrl;
       selectRef.set(res);
 
       $("#recipeDisplay").empty();
@@ -277,7 +278,7 @@ $(document).ready(function() {
     ).html(`        <button class="btn waves-effect waves-light fav" type="submit" name="action" id="submit">
         <i class="material-icons right">thumb_up</i>
       </button>
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Get Recipe!
+      <button class="btn waves-effect waves-light" type="submit" name="action" id="getRecipe">Get Recipe!
         <i class="material-icons right">send</i>
       </button>
       `);
@@ -313,6 +314,10 @@ $(document).ready(function() {
           UpdateCalander(6);
           break;
       }
+    });
+
+    $("#getRecipe").on("click", function() {
+      window.open(recipeUrl, "_blank");
     });
   });
 
