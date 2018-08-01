@@ -7,8 +7,76 @@ html {
   visibility: hidden;
 }
 
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background: url("../images/homepagebackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+th {
+  background: white;
+  text-align: center;
+}
+
+table,
+th {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.row .col.s6 {
+  width: 50%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+  border-radius: 2px;
+  max-height: 108vh;
+  margin-bottom: auto;
+}
+
+td,
+th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: black;
+  color: white;
+}
+
+#breakfast,
+#lunch,
+#dinner,
+#snack {
+  background: white;
+  margin: auto;
+}
+
+#recipeList {
+  margin-top: 10px;
+}
+
+.input-field > label {
+  color: black;
+}
+
+#recipeContent {
+  margin-bottom: 10px;
+}
+
+.textcenter {
+  text-align: center;
+  text-transform: uppercase;
 }

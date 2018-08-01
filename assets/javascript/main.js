@@ -138,6 +138,9 @@ $(document).ready(function() {
       }
     }
   ];
+
+  $(".dropdown-trigger").dropdown();
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
@@ -161,13 +164,12 @@ $(document).ready(function() {
     event.preventDefault();
     var searchPhrase = $("#meal").val();
     var allergies = $("#allergy").val();
-    // var diets = $('#diet').val();
-    // var cuisines = $('#cuisine').val();
-    // var courses = $('#course').val();
-    // var holidays = $('#holiday').val();
-    // var time = parseInt($('#time').val()) * 60;
-
-    // var requiredPictures = true;
+    var diets = $("#diet").val();
+    var cuisines = $("#cuisine").val();
+    var courses = $("#course").val();
+    var holidays = $("#holiday").val();
+    var time = parseInt($("#time").val()) * 60;
+    var requiredPictures = true;
     var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
       " ",
       "+"
@@ -195,6 +197,9 @@ $(document).ready(function() {
       });
   });
 
+  var selectRef = database.ref("user/selection");
+  var favRef = database.ref("user/favs/");
+
   // Get recipe link
   $(document).on("click", ".recipe", function(event) {
     var recipeid = event.currentTarget.id;
@@ -207,20 +212,53 @@ $(document).ready(function() {
     getRecipes(url).then(res => {
       console.log(res);
       image = res.images[0].hostedMediumUrl;
-    });
-    $("#recipeDay").html(`<select class="browser-default" id="mealPlanDay">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="sunday">Sunday</option>
-    <option value="monday">Monday</option>
-    <option value="tuesday">Tuesday</option>
-    <option value="wednesday">Wednesday</option>
-    <option value="thursday">Thursday</option>
-    <option value="friday">Friday</option>
-    <option value="saturday">Saturday</option>
-    </select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Display Calander
-    <i class="material-icons right">send</i>
-    </button>`);
 
+      selectRef.set(res);
+
+      $("#recipeDisplay").empty();
+      var recipeDiv = $("<div>");
+      // Creating an image tag
+      var recipeImage = $("<img>");
+      // Giving the image tag an src attribute of a proprty pulled off the
+      // result item
+      recipeImage.attr(
+        "src",
+        res.images[0].hostedMediumUrl,
+        "class='center-align'"
+      );
+      // Appending the paragraph (the name, the time, ingredients)
+      var pCourse = res.attributes.course[0];
+      var pTime = res.totalTime;
+      var pName = res.name;
+      var pServings = res.numberOfServings;
+      recipeDiv.append(recipeImage);
+      recipeDiv.append("<h5>" + pName + "</h5>");
+      recipeDiv.append("Course: " + pCourse + "<br>");
+      recipeDiv.append("Time: " + pTime + "<br>");
+      var pIngr = $("<p>").text("Ingredients: ");
+      recipeDiv.append(pIngr);
+      for (var i = 0; i < res.ingredientLines.length; i++) {
+        pIngr = res.ingredientLines[i];
+        recipeDiv.append(pIngr + "<br>");
+      }
+      $("#recipeDisplay").append(recipeDiv);
+    });
+    //TODO : figure out where these 2 lines below are going (part of which fn)
+    //   // add image to recipeContent
+    //   $('#testImage').html(`<img src=${res.images[0].hostedMediumUrl}>`);
+    // });
+    $("#recipeDay").html(`<select class="browser-default" id="mealPlanDay">
+<option value="" disabled selected>Choose your option</option>
+<option value="sunday">Sunday</option>
+<option value="monday">Monday</option>
+<option value="tuesday">Tuesday</option>
+<option value="wednesday">Wednesday</option>
+<option value="thursday">Thursday</option>
+<option value="friday">Friday</option>
+<option value="saturday">Saturday</option>
+</select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Display Meal Plan
+<i class="material-icons right">send</i>
+</button>`);
     $(
       "#recipeContent"
     ).html(`<select class="browser-default" id="mealPlanOption">
@@ -236,7 +274,7 @@ $(document).ready(function() {
 
     $(
       "#recipeButtons"
-    ).html(`        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">
+    ).html(`        <button class="btn waves-effect waves-light fav" type="submit" name="action" id="submit">
         <i class="material-icons right">thumb_up</i>
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Get Recipe!
@@ -276,6 +314,66 @@ $(document).ready(function() {
           break;
       }
     });
+  });
+
+  // Save recipe data to favs
+  var selectedRecipe = {};
+  selectRef.on("value", function(snapshot) {
+    console.log(snapshot.val());
+    selectedRecipe = snapshot.val();
+    console.log(selectedRecipe);
+  });
+
+  favRef.on("value", function(snapshot) {
+    $("#dropdown1, #dropdown2").empty();
+
+    var favRecipes = snapshot.val();
+
+    if (favRecipes !== null) {
+      for (let i = 0; i < favRecipes.length; i++) {
+        var listFavs = $("<li>");
+        listFavs.html(
+          `<a id=${favRecipes[i].id} class="recipe"> <img src=${
+            favRecipes[i].images[0].hostedSmallUrl
+          }> ${favRecipes[i].id}</a>`
+        );
+        $("#dropdown1, #dropdown2").append(listFavs);
+      }
+    }
+    console.log(favRecipes);
+  });
+
+  $(document).on("click", ".fav", function(event) {
+    favRef.once("value", function(snapshot) {
+      var favRecipes = snapshot.val();
+      console.log(favRecipes);
+      if (favRecipes === null) {
+        // favRecipes = [];
+        favRef.set({ 0: selectedRecipe });
+      } else {
+        favRecipes.push(selectedRecipe);
+        console.log(favRecipes);
+        // Keep unique recipes
+        var ids = favRecipes.map(recipe => {
+          return recipe.id;
+        });
+        console.log(ids);
+        let unique = [...new Set(ids)];
+        console.log(unique);
+
+        // only keep unique recipes
+        var uniqueRecipes = [];
+        for (let i = 0; i < unique.length; i++) {
+          uniqueRecipes.push(favRecipes[ids.indexOf(unique[i])]);
+        }
+        console.log(uniqueRecipes);
+
+        favRef.set(uniqueRecipes);
+        // console.log(favRecipes);
+        // favRef.set(favRecipes);
+      }
+    });
+    // favRef.orderByChild()
   });
 
   // Supplementary Functions
@@ -418,11 +516,6 @@ $(document).ready(function() {
       UpdateCalander(index);
     }
   }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  var elems = document.querySelectorAll("select");
-  var instances = M.FormSelect.init(elems, options);
 });
 
 // Or with jQuery
