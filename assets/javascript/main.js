@@ -1,61 +1,58 @@
 $(document).ready(function() {
   // Materlize functionality
-  $('.sidenav').sidenav();
-  $('select').formSelect();
+  $(".sidenav").sidenav();
+  $("select").formSelect();
 
-  $('.dropdown-trigger').dropdown();
+  $(".dropdown-trigger").dropdown();
 
   var mealPlan = {
-    breakfast: '',
-    lunch: '',
-    dinner: '',
-    snack: ''
+    breakfast: "",
+    lunch: "",
+    dinner: "",
+    snack: ""
   };
   // Initialize Firebase
   var config = {
-    apiKey: 'AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs',
-    authDomain: 'eatsmart-group.firebaseapp.com',
-    databaseURL: 'https://eatsmart-group.firebaseio.com',
-    projectId: 'eatsmart-group',
-    storageBucket: 'eatsmart-group.appspot.com',
-    messagingSenderId: '9553700006'
+    apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+    authDomain: "eatsmart-group.firebaseapp.com",
+    databaseURL: "https://eatsmart-group.firebaseio.com",
+    projectId: "eatsmart-group",
+    storageBucket: "eatsmart-group.appspot.com",
+    messagingSenderId: "9553700006"
   };
   firebase.initializeApp(config);
 
   // Firebase Google Authorization
   var database = firebase.database();
-  signInButtonElement = $('#sign-in');
-  signOutButtonElement = $('#sign-out');
+  signInButtonElement = $("#sign-in");
+  signOutButtonElement = $("#sign-out");
 
-  signInButtonElement.on('click', signIn);
-  signOutButtonElement.on('click', signOut);
+  signInButtonElement.on("click", signIn);
+  signOutButtonElement.on("click", signOut);
 
-  $('#submit').on('click', function(e) {
+  $("#submit").on("click", function(e) {
     event.preventDefault();
-
-
+    var searchPhrase = $("#meal").val();
+    var allergies = $("#allergy").val();
     var diets = $("#diet").val();
     var cuisines = $("#cuisine").val();
     var courses = $("#course").val();
     var holidays = $("#holiday").val();
     var time = parseInt($("#time").val()) * 60;
     var requiredPictures = true;
-    var searchPhrase = $('#meal').val();
-    var allergies = $('#allergy').val();
-
     var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
-      ' ',
-      '+'
+      " ",
+      "+"
     )}&requirePictures=true${allergies
       .map(allergy => {
-        return '&allowedAllergy[]=' + allergy;
+        return "&allowedAllergy[]=" + allergy;
       })
-      .join('')}`;
+      .join("")}`;
     console.log(url);
 
     getRecipes(url)
       .then(res => {
-        $('#recipeList').empty();
+        $("#recipeList").empty();
         console.log(res);
         for (var i = 1; i < res.matches.length; i++) {
           var image;
@@ -70,23 +67,23 @@ $(document).ready(function() {
       });
   });
 
-  var selectRef = database.ref('user/selection');
-  var favRef = database.ref('user/favs/');
+  var selectRef = database.ref("user/selection");
+  var favRef = database.ref("user/favs/");
 
   // Get recipe link
-  $(document).on('click', '.recipe', function(event) {
+  $(document).on("click", ".recipe", function(event) {
     var recipeid = event.currentTarget.id;
 
     var url =
-      'http://api.yummly.com/v1/api/recipe/' +
+      "http://api.yummly.com/v1/api/recipe/" +
       recipeid +
-      '?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f';
+      "?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f";
 
     getRecipes(url).then(res => {
       console.log(res);
+      selectRef.set(res);
 
-
-      $("#recipeContent").empty();
+      $("#recipeDisplay").empty();
       var recipeDiv = $("<div>");
       // Creating an image tag
       var recipeImage = $("<img>");
@@ -112,14 +109,15 @@ $(document).ready(function() {
         pIngr = res.ingredientLines[i];
         recipeDiv.append(pIngr + "<br>");
       }
-      $("#recipeContent").append(recipeDiv);
+      $("#recipeDisplay").append(recipeDiv);
     });
-      selectRef.set(res);
-      // add image to recipeContent
-      $('#testImage').html(`<img src=${res.images[0].hostedMediumUrl}>`);
-    });
+    //TODO : figure out where these 2 lines below are going (part of which fn)
+    //   // add image to recipeContent
+    //   $('#testImage').html(`<img src=${res.images[0].hostedMediumUrl}>`);
+    // });
+
     $(
-      '#recipeContent'
+      "#recipeContent"
     ).html(`<select class="browser-default" id="mealPlanOption">
     <option value="" disabled selected>Choose your option</option>
     <option value="breakfast">Breakfast</option>
@@ -131,9 +129,8 @@ $(document).ready(function() {
     <i class="material-icons right">send</i>
     </button>`);
 
-
     $(
-      '#recipeButtons'
+      "#recipeButtons"
     ).html(`        <button class="btn waves-effect waves-light fav" type="submit" name="action" id="submit">
         <i class="material-icons right">thumb_up</i>
       </button>
@@ -141,22 +138,22 @@ $(document).ready(function() {
         <i class="material-icons right">send</i>
       </button>`);
 
-    $('#addToMealPlan').on('click', function() {
-      var course = $('#mealPlanOption').val();
+    $("#addToMealPlan").on("click", function() {
+      var course = $("#mealPlanOption").val();
       switch (course) {
-        case 'breakfast':
+        case "breakfast":
           mealPlan.breakfast.id = recipeid;
           addMealToCalander(course, recipeid);
           break;
-        case 'lunch':
+        case "lunch":
           mealPlan.lunch.id = recipeid;
           addMealToCalander(course, recipeid);
           break;
-        case 'dinner':
+        case "dinner":
           mealPlan.dinner.id = recipeid;
           addMealToCalander(course, recipeid);
           break;
-        case 'snack':
+        case "snack":
           mealPlan.snack.id = recipeid;
           addMealToCalander(course, recipeid);
           break;
@@ -166,34 +163,33 @@ $(document).ready(function() {
 
   // Save recipe data to favs
   var selectedRecipe = {};
-  selectRef.on('value', function(snapshot) {
+  selectRef.on("value", function(snapshot) {
     console.log(snapshot.val());
     selectedRecipe = snapshot.val();
     console.log(selectedRecipe);
   });
 
-  favRef.on('value', function(snapshot) {
-    $('#dropdown1, #dropdown2').empty();
+  favRef.on("value", function(snapshot) {
+    $("#dropdown1, #dropdown2").empty();
 
     var favRecipes = snapshot.val();
 
     if (favRecipes !== null) {
       for (let i = 0; i < favRecipes.length; i++) {
-        var listFavs = $('<li>');
+        var listFavs = $("<li>");
         listFavs.html(
           `<a id=${favRecipes[i].id} class="recipe"> <img src=${
             favRecipes[i].images[0].hostedSmallUrl
           }> ${favRecipes[i].id}</a>`
         );
-        $('#dropdown1, #dropdown2').append(listFavs);
+        $("#dropdown1, #dropdown2").append(listFavs);
       }
     }
     console.log(favRecipes);
   });
 
-  $(document).on('click', '.fav', function(event) {
-   
-    favRef.once('value', function(snapshot) {
+  $(document).on("click", ".fav", function(event) {
+    favRef.once("value", function(snapshot) {
       var favRecipes = snapshot.val();
       console.log(favRecipes);
       if (favRecipes === null) {
@@ -230,7 +226,7 @@ $(document).ready(function() {
   async function getRecipes(url) {
     const result = await $.ajax({
       url: url,
-      method: 'GET'
+      method: "GET"
     });
 
     return result;
@@ -242,34 +238,40 @@ $(document).ready(function() {
     // image.attr('src', recipe.smallImageUrls);
     // image.attr('id', recipe.id);
 
-    var recipeDiv = $('<div>');
-    recipeDiv.addClass('card horizontal');
+    var recipeDiv = $("<div>");
+    recipeDiv.addClass("card horizontal");
     recipeDiv.html(`
       <div class="card-stacked">
         <div class="card-content">
             <img id=${recipe.id} src=${recipe.smallImageUrls}>
             <br>
             <a id=${recipe.id} class="recipe">${recipe.id
-      .split('-')
+      .split("-")
       .slice(0, -1)
-      .join(' ')}</a>
+      .join(" ")}</a>
         </div>
       </div>`);
 
-    $('#recipeList').append(recipeDiv);
+    $("#recipeList").append(recipeDiv);
   }
 
   function addMealToCalander(course, recipeID) {
     var url =
-      'http://api.yummly.com/v1/api/recipe/' +
+      "http://api.yummly.com/v1/api/recipe/" +
       recipeID +
-      '?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f';
+      "?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f";
     getRecipes(url).then(res => {
-      $('#' + course).html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
+      $("#" + course).html(`<div> <img src = ${res.images[0].hostedSmallUrl}>
             <b><p> ${recipeID
-              .split('-')
+              .split("-")
               .slice(0, -1)
-              .join(' ')}</p></b></div>`);
+              .join(" ")}</p></b></div>`);
     });
   }
+});
+
+// Or with jQuery
+
+$(document).ready(function() {
+  $("select").formSelect();
 });
