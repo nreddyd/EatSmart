@@ -28,10 +28,21 @@
           <a href="badges.html">Settings</a>
         </li>
         <li>
-          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites<i class="material-icons right">arrow_drop_down</i></a>
+          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
         </li>
-        <li>
-          <a href="collapsible.html">Register</a>
+        <li class="register">
+          <a href="registerindex.html">Register</a>
+        </li>
+        <li class="sign-in-email">
+          <a href="signin.html">Log In</a>
+        </li>
+        <li class="hidden profile-page">
+          <a href="profile.html">Profile</a>
+        </li>
+        <li class="hidden log-out">
+          <a href="index.html">Log Out</a>
         </li>
         <li>
           <a id="sign-in" class="waves-effect waves-light btn-small">
@@ -45,13 +56,19 @@
     </div>
   </nav>
 
-<!-- Dropdown Structure for uncollapsed navbar -->
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
+  <!-- Dropdown Structure for uncollapsed navbar -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li>
+      <a href="#!">one</a>
+    </li>
+    <li>
+      <a href="#!">two</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="#!">three</a>
+    </li>
+  </ul>
 
   <ul class="sidenav" id="mobile-demo">
     <li>
@@ -61,10 +78,21 @@
       <a href="badges.html">Settings</a>
     </li>
     <li>
-      <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites<i class="material-icons right">arrow_drop_down</i></a>
+      <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
+        <i class="material-icons right">arrow_drop_down</i>
+      </a>
     </li>
-    <li>
-      <a href="collapsible.html">Register</a>
+    <li class="register">
+      <a href="registerindex.html">Register</a>
+    </li>
+    <li class="sign-in-email">
+      <a href="signin.html">Log In</a>
+    </li>
+    <li class="hidden profile-page">
+      <a href="profile.html">Profile</a>
+    </li>
+    <li class="hidden log-out">
+      <a href="index.html">Log Out</a>
     </li>
     <li>
       <a id="sign-in" class="btn waves-effect waves-light btn-small">
@@ -78,13 +106,19 @@
     </li>
   </ul>
 
-<!-- Dropdown Structure for collapsed navbar -->
-<ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
+  <!-- Dropdown Structure for collapsed navbar -->
+  <ul id="dropdown2" class="dropdown-content">
+    <li>
+      <a href="#!">one</a>
+    </li>
+    <li>
+      <a href="#!">two</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="#!">three</a>
+    </li>
+  </ul>
 
 
   <div class="container">
@@ -178,6 +212,21 @@
     </div>
   </div>
 
+  <!--FIREBASE-->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
+      authDomain: "eatsmart-group.firebaseapp.com",
+      databaseURL: "https://eatsmart-group.firebaseio.com",
+      projectId: "eatsmart-group",
+      storageBucket: "eatsmart-group.appspot.com",
+      messagingSenderId: "9553700006"
+    };
+    firebase.initializeApp(config);
+  </script>
+
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
@@ -187,11 +236,18 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script> -->
+
   <!-- import funnctions -->
-  <script src="./assets/javascript/functions.js"></script>
+  <!-- <script src="./assets/javascript/functions.js"></script> -->
+
   <!-- app JS code -->
   <script src="assets/javascript/main.js"></script>
+  <!-- app JS code -->
+  <script src="assets/javascript/registerapp.js"></script>
+  <!-- app JS code -->
+  <script src="assets/javascript/loginapp.js"></script>
+
 </body>
 
 </html>
