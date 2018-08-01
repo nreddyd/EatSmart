@@ -170,7 +170,7 @@ $(document).ready(function() {
     var holidays = $("#holiday").val();
     var time = parseInt($("#time").val()) * 60;
     var requiredPictures = true;
-    var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
+    var url = `https://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
       " ",
       "+"
     )}&requirePictures=true${allergies
@@ -205,7 +205,7 @@ $(document).ready(function() {
     var recipeid = event.currentTarget.id;
     var image = "";
     var url =
-      "http://api.yummly.com/v1/api/recipe/" +
+      "https://api.yummly.com/v1/api/recipe/" +
       recipeid +
       "?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f";
 
