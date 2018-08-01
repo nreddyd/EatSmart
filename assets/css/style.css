@@ -12,3 +12,46 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+th {
+  background: white;
+}
+
+table,
+th {
+  margin-top: 10px;
+}
+
+.row .col.s6 {
+  width: 50%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+td,
+th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+#breakfast,
+#lunch,
+#dinner,
+#snack {
+  background: white;
+}
+
+#recipeList {
+  margin-top: 10px;
+}
+
+.input-field > label {
+  color: black;
+}
