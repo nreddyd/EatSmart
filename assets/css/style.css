@@ -7,6 +7,15 @@ html {
   visibility: hidden;
 }
 
+nav .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background: url("../images/homepagebackground.jpg");
   background-repeat: no-repeat;
@@ -15,11 +24,13 @@ body {
 
 th {
   background: white;
+  text-align: center;
 }
 
 table,
 th {
   margin-top: 10px;
+  text-align: center;
 }
 
 .row .col.s6 {
@@ -36,9 +47,11 @@ td,
 th {
   padding: 15px 5px;
   display: table-cell;
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
   border-radius: 2px;
+  background: black;
+  color: white;
 }
 
 #breakfast,
@@ -46,6 +59,7 @@ th {
 #dinner,
 #snack {
   background: white;
+  margin: auto;
 }
 
 #recipeList {
