@@ -32,7 +32,6 @@ $(document).ready(function() {
     event.preventDefault();
     var searchPhrase = $("#meal").val();
     var allergies = $("#allergy").val();
-<<<<<<< HEAD
     var diets = $("#diet").val();
     var cuisines = $("#cuisine").val();
     var courses = $("#course").val();
@@ -40,15 +39,6 @@ $(document).ready(function() {
     var time = parseInt($("#time").val()) * 60;
 
     var requiredPictures = true;
-=======
-    // var diets = $('#diet').val();
-    // var cuisines = $('#cuisine').val();
-    // var courses = $('#course').val();
-    // var holidays = $('#holiday').val();
-    // var time = parseInt($('#time').val()) * 60;
-
-    // var requiredPictures = true;
->>>>>>> 92cdc5ae7c3ad6e376455f0d98a14ff46460d5c6
     var url = `http://api.yummly.com/v1/api/recipes?_app_id=6fe80130&_app_key=e47479bfbd3e29b4ddd5ceb95d60916f&q=${searchPhrase.replace(
       " ",
       "+"
@@ -87,8 +77,7 @@ $(document).ready(function() {
 
     getRecipes(url).then(res => {
       console.log(res);
-<<<<<<< HEAD
-      $("#recipeContent").empty();
+      $("#recipeDisplay").empty();
       var recipeDiv = $("<div>");
       // Creating an image tag
       var recipeImage = $("<img>");
@@ -114,23 +103,8 @@ $(document).ready(function() {
         pIngr = res.ingredientLines[i];
         recipeDiv.append(pIngr + "<br>");
       }
-      $("#recipeContent").append(recipeDiv);
+      $("#recipeDisplay").append(recipeDiv);
     });
-=======
-    });
-    $(
-      "#recipeContent"
-    ).html(`<select class="browser-default" id="mealPlanOption">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="breakfast">Breakfast</option>
-    <option value="lunch">Lunch</option>
-    <option value="dinner">Dinner</option>
-    <option value="snack">Snack</option>
-    </select>
-    <button class="btn waves-effect waves-light" type="submit" name="action" id="addToMealPlan">Add to meal plan
-    <i class="material-icons right">send</i>
-    </button>`);
->>>>>>> 92cdc5ae7c3ad6e376455f0d98a14ff46460d5c6
 
     $(
       "#recipeButtons"
@@ -211,11 +185,6 @@ $(document).ready(function() {
               .join(" ")}</p></b></div>`);
     });
   }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  var elems = document.querySelectorAll("select");
-  var instances = M.FormSelect.init(elems, options);
 });
 
 // Or with jQuery
