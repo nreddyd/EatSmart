@@ -114,3 +114,8 @@ background: white;
   background: white;
   align-content: center;
 }
+
+/* change mouseover from cursor to pointer for all anchor tags */
+a, li, p {
+  cursor: pointer;
+}
