@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-
+//removed init, checking to resolve
 
 
 
