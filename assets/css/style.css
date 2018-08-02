@@ -120,16 +120,10 @@ background: white;
   align-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
+/* change mouseover from cursor to pointer for all anchor tags */
+a, li, p {
+  cursor: pointer;
+}
 
 .overlay {
   position: fixed;
@@ -142,6 +136,7 @@ background: white;
   visibility: hidden;
   opacity: 0;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;

@@ -141,24 +141,8 @@ $(document).ready(function() {
 
   $('.dropdown-trigger').dropdown();
 
-  // Initialize Firebase
-  var config = {
-    apiKey: 'AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs',
-    authDomain: 'eatsmart-group.firebaseapp.com',
-    databaseURL: 'https://eatsmart-group.firebaseio.com',
-    projectId: 'eatsmart-group',
-    storageBucket: 'eatsmart-group.appspot.com',
-    messagingSenderId: '9553700006'
-  };
-  // firebase.initializeApp(config);
 
-  // Firebase Google Authorization
   var database = firebase.database();
-  // signInButtonElement = $('#sign-in');
-  // signOutButtonElement = $('#sign-out');
-
-  // signInButtonElement.on('click', signIn);
-  // signOutButtonElement.on('click', signOut);
 
   $('#submit').on('click', function(e) {
     event.preventDefault();
@@ -255,7 +239,7 @@ $(document).ready(function() {
 <option value="thursday">Thursday</option>
 <option value="friday">Friday</option>
 <option value="saturday">Saturday</option>
-</select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Display Meal Plan
+</select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Change day
 <i class="material-icons right">send</i>
 </button>`);
     $(
