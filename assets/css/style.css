@@ -126,6 +126,7 @@ border-radius: 10px;
   font-size: 20px;
 }
 
+
 #profile-picture {
   margin-left: 10%;
 }
@@ -155,6 +156,10 @@ border-radius: 10px;
 }
 
 
+/* change mouseover from cursor to pointer for all anchor tags */
+a, li, p {
+  cursor: pointer;
+}
 
 
 .overlay {
@@ -168,6 +173,7 @@ border-radius: 10px;
   visibility: hidden;
   opacity: 0;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
