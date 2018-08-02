@@ -1,143 +1,143 @@
+var weeklyPlan = [
+  {
+    day: "Sunday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Monday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Tuesday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Wednesday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Thursday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Friday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  },
+  {
+    day: "Saturday",
+    breakfast: {
+      id: "",
+      imgUrl: ""
+    },
+    lunch: {
+      id: "",
+      imgUrl: ""
+    },
+    dinner: {
+      id: "",
+      imgUrl: ""
+    },
+    snack: {
+      id: "",
+      imgUrl: ""
+    }
+  }
+];
+
 $(document).ready(function() {
   // Materlize functionality
   $(".sidenav").sidenav();
   $("select").formSelect();
-
-  var weeklyPlan = [
-    {
-      day: "Sunday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Monday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Tuesday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Wednesday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Thursday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Friday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    },
-    {
-      day: "Saturday",
-      breakfast: {
-        id: "",
-        imgUrl: ""
-      },
-      lunch: {
-        id: "",
-        imgUrl: ""
-      },
-      dinner: {
-        id: "",
-        imgUrl: ""
-      },
-      snack: {
-        id: "",
-        imgUrl: ""
-      }
-    }
-  ];
 
   $(".dropdown-trigger").dropdown();
 
