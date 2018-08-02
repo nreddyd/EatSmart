@@ -25,11 +25,11 @@ $("#submit-register").on("click", function (event) {
 
     if (userEmail == "") {
         alert("missing email")
-        window.location.href = "index.html";
+
     }
     if (userPass == "") {
         alert("missing Pass")
-        window.location.href = "index.html";
+
     } else {
 
         auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
