@@ -28,8 +28,8 @@ function checkSetup() {
   ) {
     window.alert(
       'You have not configured and imported the Firebase SDK. ' +
-        'Make sure you go through the codelab setup instructions and make ' +
-        'sure you are running the codelab using `firebase serve`'
+      'Make sure you go through the codelab setup instructions and make ' +
+      'sure you are running the codelab using `firebase serve`'
     );
   }
 }
@@ -68,7 +68,7 @@ function authStateObserver(user) {
     <button id="add-calendar">Add to Calendar</button>
     `);
 
-    $('button').on('click', function() {
+    $('button').on('click', function () {
       console.log($(this)[0].id);
       var recipe = $(this)[0].id;
       console.log('recipe:' + recipe);
@@ -78,7 +78,7 @@ function authStateObserver(user) {
     // saveMessagingDeviceToken();
 
     // add to calendar
-    $('#add-calendar').on('click', function() {});
+    $('#add-calendar').on('click', function () { });
   } else {
     // User is signed out!
     // Hide user's profile and sign-out button.

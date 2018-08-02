@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Materlize functionality
   $(".sidenav").sidenav();
   $("select").formSelect();
@@ -150,7 +150,7 @@ $(document).ready(function() {
     storageBucket: "eatsmart-group.appspot.com",
     messagingSenderId: "9553700006"
   };
-  firebase.initializeApp(config);
+  // firebase.initializeApp(config);
 
   // Firebase Google Authorization
   var database = firebase.database();
@@ -159,6 +159,7 @@ $(document).ready(function() {
 
   signInButtonElement.on("click", signIn);
   signOutButtonElement.on("click", signOut);
+
 
   $("#submit").on("click", function(e) {
     event.preventDefault();
@@ -201,7 +202,9 @@ $(document).ready(function() {
   var favRef = database.ref("user/favs/");
 
   // Get recipe link
+
   $(document).on("click", ".recipe", function(event) {
+
     var recipeid = event.currentTarget.id;
     var image = "";
     var recipeUrl = "";
@@ -280,6 +283,7 @@ $(document).ready(function() {
       </button>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="getRecipe">Get Recipe!
         <i class="material-icons right">send</i>
+
       </button>
       `);
 
@@ -297,6 +301,7 @@ $(document).ready(function() {
           break;
         case "monday":
           UpdateCalander(1);
+
           break;
         case "tuesday":
           UpdateCalander(2);
@@ -323,14 +328,18 @@ $(document).ready(function() {
 
   // Save recipe data to favs
   var selectedRecipe = {};
+
   selectRef.on("value", function(snapshot) {
+
     console.log(snapshot.val());
     selectedRecipe = snapshot.val();
     console.log(selectedRecipe);
   });
 
+
   favRef.on("value", function(snapshot) {
     $("#dropdown1, #dropdown2").empty();
+
 
     var favRecipes = snapshot.val();
 
@@ -339,7 +348,7 @@ $(document).ready(function() {
         var listFavs = $("<li>");
         listFavs.html(
           `<a id=${favRecipes[i].id} class="recipe"> <img src=${
-            favRecipes[i].images[0].hostedSmallUrl
+          favRecipes[i].images[0].hostedSmallUrl
           }> ${favRecipes[i].id}</a>`
         );
         $("#dropdown1, #dropdown2").append(listFavs);
@@ -348,8 +357,10 @@ $(document).ready(function() {
     console.log(favRecipes);
   });
 
+
   $(document).on("click", ".fav", function(event) {
     favRef.once("value", function(snapshot) {
+
       var favRecipes = snapshot.val();
       console.log(favRecipes);
       if (favRecipes === null) {
@@ -406,9 +417,12 @@ $(document).ready(function() {
             <img id=${recipe.id} src=${recipe.smallImageUrls}>
             <br>
             <a id=${recipe.id} class="recipe">${recipe.id
+
+
       .split("-")
       .slice(0, -1)
       .join(" ")}</a>
+
         </div>
       </div>`);
 
@@ -418,6 +432,7 @@ $(document).ready(function() {
   function addMealToCalander(course, recipeID, image) {
     $("#" + course).html(`<div> <img src = ${image}>
             <b><p> ${recipeID
+
               .split("-")
               .slice(0, -1)
               .join(" ")}</p></b></div>`);
@@ -487,6 +502,7 @@ $(document).ready(function() {
         updateDay(6, course, recipeid, image);
         break;
     }
+
   }
 
   function updateDay(index, course, recipeid, image) {
