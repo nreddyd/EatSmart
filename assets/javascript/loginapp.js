@@ -69,13 +69,14 @@ firebase.auth().onAuthStateChanged(function (user) {
                 diet: childData.diet,
                 email: childData.email
             };
+
             $("#intro").append(ii.name);
             $("#intro-email").append(ii.email);
             $("#intro-diet").append(ii.diet);
             $("#intro-allergy").append(ii.allergy)
             // var iName = snapshot.val();
             // console.log(iName)
-        })
+        });
     }
 
     else {
