@@ -1,13 +1,19 @@
-// // Second API random Image 
 
-// var inputFood = "food";
-// var Authorization = "Client-ID YOUR_ACCESS_KEY";
-// var mainURL = "https://api.unsplash.com/photos/?random?"
+$(document).ready()
+{
 
-// $("#random").on("click", function () {
-//     var imgg = unsplash.photos.getRandomPhoto({ username: "naoufal" })
-//         .then(toJson)
-//         .then(json => {
-//             // Your code
-//         })
-// });
+    $("#profile-picture").click(function (b) {
+        $("#uploadImg").click();
+    });
+
+    function previewPic(uploader) {
+        if (uploader.files && uploader.files[0]) {
+            $("#profile-picture").attr('src',
+                window.URL.createObjectURL(uploader.files[0]));
+        }
+    }
+    $("#uploadImg").change(function () {
+        previewPic(this);
+    });
+
+}
