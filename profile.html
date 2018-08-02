@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </style>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 
 <body>
@@ -25,13 +26,12 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li>
-                    <a href="sass.html">How it works</a>
+                    <a href="howitworks.html">How it works</a>
                 </li>
                 <li>
-                    <a href="badges.html">Settings</a>
-                </li>
-                <li>
-                    <a href="collapsible.html">Favourites</a>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
                 </li>
                 <li class="hidden log-out">
                     <a href="index.html">Log Out</a>
@@ -40,24 +40,35 @@
         </div>
     </nav>
 
+    <!-- Dropdown Structure for favourites -->
+    <ul id="dropdown1" class="dropdown-content">
+    </ul>
+
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <a href="index.html">HOME</a>
+            <a href="howitworks.html">How it works</a>
         </li>
         <li>
-            <a href="sass.html">How it works</a>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
         </li>
-        <li>
-            <a href="badges.html">Settings</a>
+        <li class="register">
+            <a href="registerindex.html">Register</a>
         </li>
-        <li>
-            <a href="collapsible.html">Favourites</a>
+        <li class="sign-in-email">
+            <a href="signin.html">Log In</a>
         </li>
+        <li class="hidden profile-page">
+            <a href="profile.html">Profile</a>
+        </li>
+        <li class="hidden log-out">
+            <a href="index.html">Log Out</a>
+        </li>
+    </ul>
 
-        <li>
-            <a id="sign-out" class="waves-effect waves-light btn-small">
-                <i class="material-icons left">exit_to_app</i>Sign-out</a>
-        </li>
+    <!-- Dropdown Structure for collapsed navbar -->
+    <ul id="dropdown2" class="dropdown-content">
     </ul>
 
     <div class="container">
@@ -66,17 +77,30 @@
 
 
 
-            <h1 id="intro"></h1>
+            <h1>Welcome
+                <span id="intro"></span>
+            </h1>
+
 
             <div class="image">
-                <img id="profilePicture" src="https://cdn4.iconfinder.com/data/icons/people-avatars-1/64/Avatars_23-512.png" alt="Profile Picture"
+                <img id="profile-picture" src="https://cdn4.iconfinder.com/data/icons/people-avatars-1/64/Avatars_23-512.png" alt="Profile Picture"
                     width="100px" height="100px" />
             </div>
             <div class="position">
-                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" style="font-size: 12px;">
+                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" required="" capture>
                 <p id="imgError"></p>
             </div>
 
+
+            <h2 class="profile-overview">My Email:
+                <span id="intro-email"></span>
+            </h2>
+            <h2 class="profile-overview">My Diet:
+                <span id="intro-diet"></span>
+            </h2>
+            <h2 class="profile-overview">My Allergy:
+                <span id="intro-allergy"></span>
+            </h2>
 
         </div>
     </div>
@@ -114,6 +138,9 @@
 
     <!--Profile image logic-->
     <script type="text/javascript" src="./assets/javascript/profilelogic.js"></script>
+
+    <!-- app JS code -->
+    <script src="assets/javascript/main.js"></script>
 
 </body>
 

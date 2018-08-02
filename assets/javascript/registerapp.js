@@ -20,44 +20,44 @@ $("#submit-register").on("click", function (event) {
 
 
 
-    console.log(
-        "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
+    // console.log(
+    //     "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
 
     if (userEmail == "") {
         alert("missing email")
+
     }
     if (userPass == "") {
         alert("missing Pass")
+
     } else {
-        alert("Welcome :  " + userName)
-        alert("allgood")
-    }
 
+        auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
+            userUID = user.uid;
 
-    auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
-        userUID = user.uid;
+            //testing user id
+            console.log("USERUID:" + userUID)
 
-        //testing user id
-        console.log("USERUID:" + userUID)
+            user.updateProfile({ displayName: userName });
 
-        user.updateProfile({ displayName: userName });
-
-        // create a new Node
-        database.ref("/Users/" + userUID).set({
-            "email": userEmail,
-            "name": userName,
-            "pass": userPass,
-            "diet": dietType,
-            "allergy": anyAllergy
-        });
-    })
-        .catch(function (error) {
-            console.log(error.code);
-            console.log(error.message);
+            // create a new Node
+            database.ref("/Users/" + userUID).set({
+                "email": userEmail,
+                "name": userName,
+                "pass": userPass,
+                "diet": dietType,
+                "allergy": anyAllergy
+            });
         })
-        .then(function () {
-            window.location.href = "profile.html";
-        });
+            .catch(function (error) {
+                console.log(error.code);
+                console.log(error.message);
+            })
+            .then(function () {
+                window.location.href = "profile.html";
+            });
+
+    }
 
 
 });
@@ -70,7 +70,7 @@ $("#submit-register").on("click", function (event) {
 $(".register").on("click", e => {
 
 
-    alert("Let's register")
+    // alert("Let's register")
     window.location.href = "registerindex.html";
 });
 
@@ -79,7 +79,7 @@ $(".register").on("click", e => {
 $(".sign-in-email").on("click", e => {
 
 
-    alert("Let's Log In")
+    // alert("Let's Log In")
     window.location.href = "signin.html";
 });
 
@@ -91,7 +91,7 @@ $(".sign-in-email").on("click", e => {
 //---------------------------------------
 $(".log-out").on("click", e => {
     firebase.auth().signOut();
-    alert("your logged out!")
+    // alert("your logged out!")
     window.location.href = "index.html";
 });
 
