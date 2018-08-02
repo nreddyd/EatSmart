@@ -458,8 +458,10 @@ $(document).ready(function() {
   }
 
   function saveweekplan() {
-    var userid = firebase.auth().currentUser.uid;
-    database.ref(`/Users/${userid}/WeekPlan/`).set(weeklyPlan);
+    if (firebase.auth().currentUser != null) {
+      var userid = firebase.auth().currentUser.uid;
+      database.ref(`/Users/${userid}/WeekPlan/`).set(weeklyPlan);
+    }
   }
 });
 
