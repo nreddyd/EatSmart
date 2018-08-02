@@ -12,7 +12,7 @@ $("#log-in").on("click", function () {
 
     //checking to see value input
 
-    console.log("User Name is: " + userEmail + " Password is: " + userPass)
+    // console.log("User Name is: " + userEmail + " Password is: " + userPass)
 
     if (userEmail == "") {
         alert("missing email")
@@ -20,12 +20,12 @@ $("#log-in").on("click", function () {
     if (userPass == "") {
         alert("missing Pass")
     } else {
-        alert("Welcome : " + userEmail);
+        // alert("Welcome : " + userEmail);
     }
 
     auth.signInWithEmailAndPassword(userEmail, userPass)
         .then(function (user) {
-            alert("YOUR ARE LOGGED IN " + user.email)
+            // alert("YOUR ARE LOGGED IN " + user.email)
             window.location.href = "profile.html";
         }).catch(function (error) {
             console.log(error.code);
