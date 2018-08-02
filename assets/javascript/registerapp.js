@@ -41,7 +41,7 @@ $("#submit-register").on("click", function (event) {
             user.updateProfile({ displayName: userName });
 
             // create a new Node
-            database.ref("/Users/" + userUID).set({
+            database.ref("Users/" + userUID).set({
                 "email": userEmail,
                 "name": userName,
                 "pass": userPass,

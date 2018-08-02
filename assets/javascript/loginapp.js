@@ -49,8 +49,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     if (user != null) {
         var userId = firebase.auth().currentUser.uid;
-        var nameRef = database.ref("Users/" + userId)
-    
+        var nameRef = database.ref(`Users/${userId}`)
+        console.log(userId)
 
         $(".log-out").removeClass("hidden");
         $(".register").addClass("hidden");
@@ -60,6 +60,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         //Appending user details on profile page
         nameRef.once("value", function (snapshot) {
             var childData = snapshot.val();
+            console.log(childData)
             var ii = {
                 name: childData.name,
                 allergy: childData.allergy,
