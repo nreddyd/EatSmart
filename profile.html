@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </style>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 
 <body>
@@ -86,17 +87,30 @@
 
 
 
-            <h1 id="intro"></h1>
+            <h1>Welcome
+                <span id="intro"></span>
+            </h1>
+
 
             <div class="image">
-                <img id="profilePicture" src="https://cdn4.iconfinder.com/data/icons/people-avatars-1/64/Avatars_23-512.png" alt="Profile Picture"
+                <img id="profile-picture" src="https://cdn4.iconfinder.com/data/icons/people-avatars-1/64/Avatars_23-512.png" alt="Profile Picture"
                     width="100px" height="100px" />
             </div>
             <div class="position">
-                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" style="font-size: 12px;">
+                <input type="file" id="uploadImg" accept=".jpg, .jpeg, .gif, .png" required="" capture>
                 <p id="imgError"></p>
             </div>
 
+
+            <h2 class="profile-overview">My Email:
+                <span id="intro-email"></span>
+            </h2>
+            <h2 class="profile-overview">My Diet:
+                <span id="intro-diet"></span>
+            </h2>
+            <h2 class="profile-overview">My Allergy:
+                <span id="intro-allergy"></span>
+            </h2>
 
         </div>
     </div>
