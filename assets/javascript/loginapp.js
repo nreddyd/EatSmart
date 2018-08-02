@@ -56,10 +56,11 @@ firebase.auth().onAuthStateChanged(function (user) {
         $(".register").addClass("hidden");
         $(".sign-in-email").addClass("hidden");
         $(".profile-page").removeClass("hidden")
+
     }
 
     else {
-
+        $("#sign-out").addClass("hidden");
     }
 });
 

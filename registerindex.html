@@ -6,21 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Jquery Link-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <!--Stylesheet-->
-
-    <link rel="stylesheet" href="assets/css/registerstyle.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Materalize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div id="container">
-        <h1>REGISTER PAGE</h1>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">EatSmart</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="sass.html">How it works</a>
+                    </li>
+                    <li class="sign-in-email">
+                        <a href="signin.html">Log In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-        <!--register form, displays on register-->
-        <form>
-            <div id="register-form">
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="sass.html">How it works</a>
+            </li>
+            <li class="sign-in-email">
+                <a href="signin.html">Log In</a>
+            </li>
+
+        </ul>
+
+        <div id="register-form">
+            <h1>REGISTER PAGE</h1>
+
+            <!--register form, displays on register-->
+            <form>
+
 
                 <!--display name-->
                 <div class="input-value">
@@ -57,29 +90,45 @@
                         <option value="no-egg">Egg Free</option>
                     </select>
                 </div>
+                <a id="submit-register" class="waves-effect waves-light btn-small">Submit
+                </a>
 
-                <button id="submit-register">Submit</button>
-        </form>
-
-
+            </form>
         </div>
-        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
-                authDomain: "eatsmart-group.firebaseapp.com",
-                databaseURL: "https://eatsmart-group.firebaseio.com",
-                projectId: "eatsmart-group",
-                storageBucket: "eatsmart-group.appspot.com",
-                messagingSenderId: "9553700006"
-            };
-            firebase.initializeApp(config);
-        </script>
 
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCiqyk_IOH9ucw_xlr-0fWySQdYOi26hxY",
+            authDomain: "eatsmartplanyourweek.firebaseapp.com",
+            databaseURL: "https://eatsmartplanyourweek.firebaseio.com",
+            projectId: "eatsmartplanyourweek",
+            storageBucket: "eatsmartplanyourweek.appspot.com",
+            messagingSenderId: "474499886985"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
-        <script type="text/javascript" src="./assets/javascript/registerapp.js"></script>
-        <script type="text/javascript" src="./assets/javascript/loginapp.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <!-- import funnctions -->
+    <script src="./assets/javascript/functions.js"></script>
+
+    <!-- app JS code -->
+    <script src="assets/javascript/main.js"></script>
+    <!-- app JS code -->
+    <script src="assets/javascript/registerapp.js"></script>
+    <!-- app JS code -->
+    <script src="assets/javascript/loginapp.js"></script>
+
 
 
 </body>
