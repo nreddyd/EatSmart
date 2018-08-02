@@ -60,17 +60,21 @@ firebase.auth().onAuthStateChanged(function (user) {
         $(".sign-in-email").addClass("hidden");
         $(".profile-page").removeClass("hidden")
 
+        //Appending user details on profile page
         nameRef.once("value", function (snapshot) {
             var childData = snapshot.val();
             var ii = {
                 name: childData.name,
                 allergy: childData.allergy,
-                diet: childData.diet
+                diet: childData.diet,
+                email: childData.email
             };
-            console.log(ii.name)
-            $("#intro").append(ii.name)
-            var iName = snapshot.val();
-            console.log(iName)
+            $("#intro").append(ii.name);
+            $("#intro-email").append(ii.email);
+            $("#intro-diet").append(ii.diet);
+            $("#intro-allergy").append(ii.allergy)
+            // var iName = snapshot.val();
+            // console.log(iName)
         })
     }
 

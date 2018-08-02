@@ -87,6 +87,7 @@ margin: 10%;
 margin-left: 15%;
 margin-right: 15%;
 background: white;
+border-radius: 10px;
 }
 
 #login-form{
@@ -95,6 +96,7 @@ margin: 10%;
 margin-left: 15%;
 margin-right: 15%;
 background: white;
+border-radius: 10px;
 }
 
 .profile-content{
@@ -106,4 +108,33 @@ background: white;
   background: white;
   align-content: center;
   border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#profile-picture {
+  margin-left: 10%;
+}
+#uploadImg {
+  margin-left: 30%;
+}
+
+.profile-overview{
+  text-align: left;
+  font-size: 30px;
+  border-bottom:#ec6f75 solid 10px;
+}
+
+#intro {
+  font-family: 'Anton', sans-serif;
+}
+
+#intro-email {
+  font-family: 'Anton', sans-serif;
+}
+#intro-diet {
+  font-family: 'Anton', sans-serif;
+}
+#intro-allergy {
+  font-family: 'Anton', sans-serif;
 }
