@@ -96,11 +96,11 @@ th {
 }
 
 #register-form {
-padding: 5%;
-margin: 10%;
-margin-left: 15%;
-margin-right: 15%;
-background: white;
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
 }
 
 #login-form {
@@ -119,17 +119,6 @@ background: white;
   background: white;
   align-content: center;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .overlay {
   position: fixed;
@@ -173,7 +162,7 @@ background: white;
   color: #333;
 }
 .popup .close:hover {
-  color: #06D85F;
+  color: #06d85f;
 }
 .popup .content {
   max-height: 30%;
