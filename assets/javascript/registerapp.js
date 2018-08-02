@@ -25,39 +25,39 @@ $("#submit-register").on("click", function (event) {
 
     if (userEmail == "") {
         alert("missing email")
+
     }
     if (userPass == "") {
         alert("missing Pass")
+
     } else {
-        // alert("Welcome :  " + userName)
-        // alert("allgood")
-    }
 
+        auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
+            userUID = user.uid;
 
-    auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
-        userUID = user.uid;
+            //testing user id
+            console.log("USERUID:" + userUID)
 
-        //testing user id
-        console.log("USERUID:" + userUID)
+            user.updateProfile({ displayName: userName });
 
-        user.updateProfile({ displayName: userName });
-
-        // create a new Node
-        database.ref("/Users/" + userUID).set({
-            "email": userEmail,
-            "name": userName,
-            "pass": userPass,
-            "diet": dietType,
-            "allergy": anyAllergy
-        });
-    })
-        .catch(function (error) {
-            console.log(error.code);
-            console.log(error.message);
+            // create a new Node
+            database.ref("/Users/" + userUID).set({
+                "email": userEmail,
+                "name": userName,
+                "pass": userPass,
+                "diet": dietType,
+                "allergy": anyAllergy
+            });
         })
-        .then(function () {
-            window.location.href = "profile.html";
-        });
+            .catch(function (error) {
+                console.log(error.code);
+                console.log(error.message);
+            })
+            .then(function () {
+                window.location.href = "profile.html";
+            });
+
+    }
 
 
 });
