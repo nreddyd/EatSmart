@@ -281,6 +281,7 @@ $(document).ready(function() {
     });
 
     $("#displayCalander").on("click", function() {
+      console.log(weeklyPlan);
       var day = $("#mealPlanDay").val();
       switch (day) {
         case "sunday":
