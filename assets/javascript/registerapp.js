@@ -20,8 +20,8 @@ $("#submit-register").on("click", function (event) {
 
 
 
-    console.log(
-        "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
+    // console.log(
+    //     "email:" + userEmail + "Pass:" + userPass + "name:" + userName + "diet:" + dietType + "Any Allergy: " + anyAllergy);
 
     if (userEmail == "") {
         alert("missing email")
@@ -29,8 +29,8 @@ $("#submit-register").on("click", function (event) {
     if (userPass == "") {
         alert("missing Pass")
     } else {
-        alert("Welcome :  " + userName)
-        alert("allgood")
+        // alert("Welcome :  " + userName)
+        // alert("allgood")
     }
 
 
@@ -70,7 +70,7 @@ $("#submit-register").on("click", function (event) {
 $(".register").on("click", e => {
 
 
-    alert("Let's register")
+    // alert("Let's register")
     window.location.href = "registerindex.html";
 });
 
@@ -79,7 +79,7 @@ $(".register").on("click", e => {
 $(".sign-in-email").on("click", e => {
 
 
-    alert("Let's Log In")
+    // alert("Let's Log In")
     window.location.href = "signin.html";
 });
 
@@ -91,7 +91,7 @@ $(".sign-in-email").on("click", e => {
 //---------------------------------------
 $(".log-out").on("click", e => {
     firebase.auth().signOut();
-    alert("your logged out!")
+    // alert("your logged out!")
     window.location.href = "index.html";
 });
 
