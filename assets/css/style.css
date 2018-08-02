@@ -41,8 +41,13 @@ th {
   background: rgba(255, 255, 255, 0.7);
   margin-top: 10px;
   border-radius: 2px;
-  max-height: 108vh;
+  max-height: 120vh;
   margin-bottom: auto;
+}
+
+img {
+  border-style: none;
+  max-height: 73px;
 }
 
 td,
@@ -90,7 +95,7 @@ th {
   margin: auto;
 }
 
-#register-form{
+#register-form {
 padding: 5%;
 margin: 10%;
 margin-left: 15%;
@@ -98,15 +103,15 @@ margin-right: 15%;
 background: white;
 }
 
-#login-form{
-padding: 5%;
-margin: 10%;
-margin-left: 15%;
-margin-right: 15%;
-background: white;
+#login-form {
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
 }
 
-.profile-content{
+.profile-content {
   padding: 5%;
   margin: 10%;
   margin-left: 15%;
