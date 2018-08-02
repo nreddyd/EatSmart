@@ -257,7 +257,7 @@ $(document).ready(function () {
 <option value="thursday">Thursday</option>
 <option value="friday">Friday</option>
 <option value="saturday">Saturday</option>
-</select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Display Meal Plan
+</select><button class="btn waves-effect waves-light" type="submit" name="action" id="displayCalander">Change day
 <i class="material-icons right">send</i>
 </button>`);
     $(
