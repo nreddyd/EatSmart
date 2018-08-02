@@ -47,11 +47,14 @@ function isUserSignedIn() {
 firebase.auth().onAuthStateChanged(function (user) {
     console.log('user:', user);
 
-    var userId = firebase.auth().currentUser.uid;
-
-    var nameRef = database.ref("Users/" + userId)
 
     if (user != null) {
+
+        var userId = firebase.auth().currentUser.uid;
+
+        var nameRef = database.ref("Users/" + userId)
+
+
         $(".log-out").removeClass("hidden");
         $(".register").addClass("hidden");
         $(".sign-in-email").addClass("hidden");
