@@ -63,8 +63,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     //Appending user details on profile page
     nameRef.once("value", function(snapshot) {
       var childData = snapshot.val();
-      weeklyPlan = childData.WeekPlan;
-      console.log(weeklyPlan);
+      if (childData.WeekPlan != null) {
+        weeklyPlan = childData.WeekPlan;
+        console.log(weeklyPlan);
+      }
       var ii = {
         name: childData.name,
         allergy: childData.allergy,
