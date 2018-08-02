@@ -41,8 +41,13 @@ th {
   background: rgba(255, 255, 255, 0.7);
   margin-top: 10px;
   border-radius: 2px;
-  max-height: 108vh;
+  max-height: 120vh;
   margin-bottom: auto;
+}
+
+img {
+  border-style: none;
+  max-height: 73px;
 }
 
 td,
@@ -81,7 +86,17 @@ th {
   text-transform: uppercase;
 }
 
-#register-form{
+.sass-container {
+  /* margin-left: auto;
+  margin-right: auto; */
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+
+}
+
+#register-form {
 padding: 5%;
 margin: 10%;
 margin-left: 15%;
@@ -90,16 +105,15 @@ background: white;
 border-radius: 10px;
 }
 
-#login-form{
-padding: 5%;
-margin: 10%;
-margin-left: 15%;
-margin-right: 15%;
-background: white;
-border-radius: 10px;
+#login-form {
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
 }
 
-.profile-content{
+.profile-content {
   padding: 5%;
   margin: 10%;
   margin-left: 15%;
@@ -138,3 +152,6 @@ border-radius: 10px;
 #intro-allergy {
   font-family: 'Anton', sans-serif;
 }
+
+
+
