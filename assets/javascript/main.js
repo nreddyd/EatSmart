@@ -420,7 +420,7 @@ $(document).ready(function() {
             <br><a id=${recipeID} class="recipe">${recipeID
       .split("-")
       .slice(0, -1)
-      .join(" ")}</a></b></div>`);
+      .join(" ")}</a></div>`);
   }
 
   function UpdateCalander(index) {
