@@ -86,12 +86,21 @@ th {
   text-transform: uppercase;
 }
 
+.sass-container {
+  /* margin-left: auto;
+  margin-right: auto; */
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+}
+
 #register-form {
-  padding: 5%;
-  margin: 10%;
-  margin-left: 15%;
-  margin-right: 15%;
-  background: white;
+padding: 5%;
+margin: 10%;
+margin-left: 15%;
+margin-right: 15%;
+background: white;
 }
 
 #login-form {
