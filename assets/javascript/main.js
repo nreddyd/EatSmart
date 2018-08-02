@@ -141,17 +141,6 @@ $(document).ready(function () {
 
   $(".dropdown-trigger").dropdown();
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBHDCWBQo0xRH-To2V5bfxNdBKU0FNuffs",
-    authDomain: "eatsmart-group.firebaseapp.com",
-    databaseURL: "https://eatsmart-group.firebaseio.com",
-    projectId: "eatsmart-group",
-    storageBucket: "eatsmart-group.appspot.com",
-    messagingSenderId: "9553700006"
-  };
-  // firebase.initializeApp(config);
-
   // Firebase Google Authorization
   var database = firebase.database();
   signInButtonElement = $("#sign-in");
