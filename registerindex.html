@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Materalize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">EatSmart</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="sass.html">How it works</a>
+                    </li>
+                    <li class="sign-in-email">
+                        <a href="signin.html">Log In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="sass.html">How it works</a>
+            </li>
+            <li class="sign-in-email">
+                <a href="signin.html">Log In</a>
+            </li>
+
+        </ul>
+
+        <div id="register-form">
+            <h1>REGISTER PAGE</h1>
+
+            <!--register form, displays on register-->
+            <form>
+
+
+                <!--display name-->
+                <div class="input-value">
+                    <input id="user-name" type="text" placeholder="Your name">
+                </div>
+
+                <div class="input-value">
+                    <input id="register-email" type="text" placeholder="Email...">
+                </div>
+                <!--Password-->
+                <div class="input-value">
+                    <input id="register-password" type="password" placeholder="Password...">
+                </div>
+                <div id="diet-options">
+                    <label for="inputdiet" class="col-form-label">What's your diet?</label>
+                    <select id="input-diet" class="form-control">
+                        <option value="none">Anything</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="ketogenic">Keto</option>
+                        <option value="Paleo">Paleo</option>
+                        <option value="Mediterranean">Mediterranean</option>
+                    </select>
+                </div>
+                <div id="allergy-options">
+                    <label for="inputallergy" class="col-form-label">Do you have an allergy?</label>
+                    <select id="input-allergy" class="form-control">
+                        <option disabled selected>Any Allergies</option>
+                        <option value="no-peanuts">Peanut Free</option>
+                        <option value="no-shellfish">Shellfish Free</option>
+                        <option value="no-treenuts">Tree Nut Free</option>
+                        <option value="no-wheat">Wheat Free</option>
+                        <option value="no-soy">Soy Free</option>
+                        <option value="no-egg">Egg Free</option>
+                    </select>
+                </div>
+                <a id="submit-register" class="waves-effect waves-light btn-small">Submit
+                </a>
+
+            </form>
+        </div>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCiqyk_IOH9ucw_xlr-0fWySQdYOi26hxY",
+            authDomain: "eatsmartplanyourweek.firebaseapp.com",
+            databaseURL: "https://eatsmartplanyourweek.firebaseio.com",
+            projectId: "eatsmartplanyourweek",
+            storageBucket: "eatsmartplanyourweek.appspot.com",
+            messagingSenderId: "474499886985"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <!-- import funnctions -->
+    <script src="./assets/javascript/functions.js"></script>
+
+    <!-- app JS code -->
+    <script src="assets/javascript/main.js"></script>
+    <!-- app JS code -->
+    <script src="assets/javascript/registerapp.js"></script>
+    <!-- app JS code -->
+    <script src="assets/javascript/loginapp.js"></script>
+
+
+
+</body>
+
+</html>

@@ -89,3 +89,28 @@ th {
   width: 80%;
   margin: auto;
 }
+=======
+#register-form{
+padding: 5%;
+margin: 10%;
+margin-left: 15%;
+margin-right: 15%;
+background: white;
+}
+
+#login-form{
+padding: 5%;
+margin: 10%;
+margin-left: 15%;
+margin-right: 15%;
+background: white;
+}
+
+.profile-content{
+  padding: 5%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: white;
+  align-content: center;
+}
