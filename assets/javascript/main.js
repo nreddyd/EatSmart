@@ -417,10 +417,10 @@ $(document).ready(function() {
 
   function addMealToCalander(course, recipeID, image) {
     $("#" + course).html(`<div> <img src = ${image}>
-            <b><p id=${recipeID} class="recipe">${recipeID
+            <br><a id=${recipeID} class="recipe">${recipeID
       .split("-")
       .slice(0, -1)
-      .join(" ")}</p></b></div>`);
+      .join(" ")}</a></div>`);
   }
 
   function UpdateCalander(index) {
