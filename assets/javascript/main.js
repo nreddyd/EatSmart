@@ -324,9 +324,7 @@ $(document).ready(function() {
   // Save recipe data to favs
   var selectedRecipe = {};
   selectRef.on("value", function(snapshot) {
-    console.log(snapshot.val());
     selectedRecipe = snapshot.val();
-    console.log(selectedRecipe);
   });
 
   favRef.on("value", function(snapshot) {
@@ -345,26 +343,21 @@ $(document).ready(function() {
         $("#dropdown1, #dropdown2").append(listFavs);
       }
     }
-    console.log(favRecipes);
   });
 
   $(document).on("click", ".fav", function(event) {
     favRef.once("value", function(snapshot) {
       var favRecipes = snapshot.val();
-      console.log(favRecipes);
       if (favRecipes === null) {
         // favRecipes = [];
         favRef.set({ 0: selectedRecipe });
       } else {
         favRecipes.push(selectedRecipe);
-        console.log(favRecipes);
         // Keep unique recipes
         var ids = favRecipes.map(recipe => {
           return recipe.id;
         });
-        console.log(ids);
         let unique = [...new Set(ids)];
-        console.log(unique);
 
         // only keep unique recipes
         var uniqueRecipes = [];
