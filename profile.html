@@ -28,8 +28,10 @@
                     <a href="sass.html">How it works</a>
                 </li>
                 <li>
-                    <a href="collapsible.html">Favourites</a>
-                </li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">Favourites
+                      <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                  </li>
                 <li class="hidden log-out">
                     <a href="index.html">Log Out</a>
                 </li>
@@ -37,22 +39,46 @@
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li>
-            <a href="index.html">HOME</a>
-        </li>
-        <li>
-            <a href="sass.html">How it works</a>
-        </li>
-        <li>
-            <a href="collapsible.html">Favourites</a>
-        </li>
+  <!-- Dropdown Structure for favourites -->
+  <ul id="dropdown1" class="dropdown-content">
+</ul>
 
-        <li>
-            <a id="sign-out" class="waves-effect waves-light btn-small">
-                <i class="material-icons left">exit_to_app</i>Sign-out</a>
-        </li>
-    </ul>
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <a href="sass.html">How it works</a>
+  </li>
+  <li>
+    <a class="dropdown-trigger" href="#!" data-target="dropdown2">Favourites
+      <i class="material-icons right">arrow_drop_down</i>
+    </a>
+  </li>
+  <li class="register">
+    <a href="registerindex.html">Register</a>
+  </li>
+  <li class="sign-in-email">
+    <a href="signin.html">Log In</a>
+  </li>
+  <li class="hidden profile-page">
+    <a href="profile.html">Profile</a>
+  </li>
+  <li class="hidden log-out">
+    <a href="index.html">Log Out</a>
+  </li>
+  <li>
+    <a id="sign-in" class="btn waves-effect waves-light btn-small">
+      <i class="material-icons left">account_circle</i>
+      <h6>Sign-in with Google</h6>
+    </a>
+  </li>
+  <li>
+    <a id="sign-out" class="waves-effect waves-light btn-small">
+      <i class="material-icons left">exit_to_app</i>Sign-out</a>
+  </li>
+</ul>
+
+<!-- Dropdown Structure for collapsed navbar -->
+<ul id="dropdown2" class="dropdown-content">
+</ul>
 
     <div class="container">
 
