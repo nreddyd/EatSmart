@@ -101,7 +101,9 @@ background: white;
   padding: 5%;
   margin: 10%;
   margin-left: 15%;
+  border: solid white 5px;
   margin-right: 15%;
   background: white;
   align-content: center;
+  border-radius: 10px;
 }

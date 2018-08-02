@@ -43,20 +43,35 @@ function isUserSignedIn() {
 }
 
 
+
 //CHECK STATUS
 //---------------------------------------
 firebase.auth().onAuthStateChanged(function (user) {
 
     console.log("user:", user);
 
+    var userId = firebase.auth().currentUser.uid;
+
+    var nameRef = database.ref("Users/" + userId)
 
     if (user != null) {
-        $("#intro").append(user.email)
         $(".log-out").removeClass("hidden");
         $(".register").addClass("hidden");
         $(".sign-in-email").addClass("hidden");
         $(".profile-page").removeClass("hidden")
 
+        nameRef.once("value", function (snapshot) {
+            var childData = snapshot.val();
+            var ii = {
+                name: childData.name,
+                allergy: childData.allergy,
+                diet: childData.diet
+            };
+            console.log(ii.name)
+            $("#intro").append(ii.name)
+            var iName = snapshot.val();
+            console.log(iName)
+        })
     }
 
     else {
