@@ -30,6 +30,8 @@ $("#submit-register").on("click", function (event) {
     if (userPass == "") {
         alert("missing Pass")
 
+    } if (userPass.length < 6) {
+        alert("password must be 6 characters long")
     } else {
 
         auth.createUserWithEmailAndPassword(userEmail, userPass).then(function (user) {
