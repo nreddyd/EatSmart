@@ -54,6 +54,7 @@ $("#submit-register").on("click", function (event) {
             .catch(function (error) {
                 console.log(error.code);
                 console.log(error.message);
+                alert(error.message)
             })
             .then(function () {
                 window.location.href = "profile.html";
