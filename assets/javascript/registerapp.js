@@ -57,7 +57,7 @@ $("#submit-register").on("click", function (event) {
                 alert(error.message)
             })
             .then(function () {
-                window.location.href = "profile.html";
+                window.location.href = "index.html";
             });
 
     }
