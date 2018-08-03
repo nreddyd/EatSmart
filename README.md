@@ -21,8 +21,14 @@ cd EatSmart/
 
 ## Features
 
+- register new user
 - user authenication
 - realtime data storage
+- search recipes with filter based on allergies
+- easily plan your weekly meal plan
+- as an authenticated user save your favourite recipes.
+- as an authenticated user save your weekly plan.
+- as an authenticated user view saved meal plan and/or modify it whenever you login in again.  
 
 ## Contributing
 
